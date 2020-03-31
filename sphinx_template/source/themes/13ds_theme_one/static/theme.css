@@ -1,0 +1,955 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i&display=swap');
+
+:root {
+  --emphasis-color: rgb(55,200,165);
+  --emphasis-color-dark: rgb(46,171,141);
+  --emphasis-color-light: rgb(139,224,203);
+  /* --emphasis-color: rgb(64,179,255);
+  --emphasis-color-dark: rgb(52,146,207);
+  --emphasis-color-light: rgb(169,221,255); */
+}
+
+/* -- Typography ---------------------------------------------------------- */
+
+body {
+  color: rgb(40,60,70);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+h1 {
+  color: rgb(45,65,75);
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0 0 1.6rem 0;
+}
+
+h2 {
+  border-bottom: solid 1px rgb(235,235,240);
+  color: rgb(45,65,75);
+  font-size: 1.65rem;
+  font-weight: 600;
+  padding: 0 0 .4rem 0;
+  margin: 2.6rem 0 1.6rem 0;
+}
+
+h3 {
+  color: rgb(45,65,75);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+h4 {
+  color: rgb(45,65,75);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+h5 {
+  color: rgb(45,65,75);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+h6 {
+  color: rgb(45,65,75);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1.25rem 0;
+  line-height: 1.7;
+}
+
+dl,
+.line {
+  line-height: 1.7;
+}
+
+/* blockquote {
+  margin: 0;
+  padding-left: 2.5rem;
+  padding-top: 1rem;
+  border-left: solid 8px rgb(230,230,230);
+  border-top: solid 1px rgb(230,230,230);
+  border-right: solid 1px rgb(230,230,230);
+  border-bottom: solid 1px rgb(230,230,230);
+  border-radius: 4px;
+  color: rgb(120,120,120);
+} */
+
+blockquote {
+  margin: 0;
+  padding-left: 2.5rem;
+  padding-top: 1rem;
+  padding-bottom: .01rem;
+  border-left: solid 8px rgb(230,230,230);
+  color: rgb(120,120,120);
+}
+
+.attribution {
+  color: #000;
+  font-size: .85rem;
+  font-style: italic;
+}
+
+.sidebar-heading {
+  border: none;
+  padding: 0 1.8rem .8rem 1.8rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sidebar-content {
+  font-size: .9rem;
+}
+
+.caption {
+  font-size: .85rem;
+  font-style: italic;
+}
+
+/* -- Lists --------------------------------------------------------------- */
+
+ul.simple p,
+ol.simple p {
+  margin: 0;
+}
+
+dt {
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #000;
+}
+
+dd {
+  margin-left: 1.5rem;
+}
+
+.field-list {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 0;
+  border: solid 1px rgb(230,230,230);
+  border-radius: 4px;
+}
+
+.field-even {
+  background: rgb(245,246,247);
+}
+
+.field-list dt {
+  font-style: normal;
+  padding: .7rem 0 0 1rem;
+  border-bottom: solid 1px rgb(230,230,230);
+}
+
+.field-list dd {
+  margin-left: 0;
+  padding: .7rem 1rem 0 2rem;
+  border-bottom: solid 1px rgb(230,230,230);
+}
+
+.field-list dt:last-of-type,
+.field-list dd:last-of-type {
+  border-bottom: none;
+}
+
+.field-list p {
+  margin-bottom: .8rem;
+}
+
+.option-list {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 0;
+  border: solid 1px rgb(230,230,230);
+  border-radius: 4px;
+}
+
+.option-list dt:nth-of-type(even),
+.option-list dd:nth-of-type(even) {
+  background: rgb(245,246,247);
+}
+
+.option-list dt {
+  font-style: normal;
+  font-weight: 400;
+  padding: .7rem 0 0 1rem;
+  border-bottom: solid 1px rgb(230,230,230);
+}
+
+.option-list dd {
+  margin-left: 0;
+  padding: .7rem 1rem 0 2rem;
+  border-bottom: solid 1px rgb(230,230,230);
+}
+
+.option-list dt:last-of-type,
+.option-list dd:last-of-type {
+  border-bottom: none;
+}
+
+.option-list p {
+  margin-bottom: .8rem;
+}
+
+/* -- Links & Buttons ----------------------------------------------------- */
+
+a {
+  color: var(--emphasis-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-link {
+  color: rgb(45,65,75);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-link:hover {
+  text-decoration: none;
+}
+
+.navbar-link {
+  color: rgb(45,65,75);
+  font-size: .95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: solid 2px #fff;
+  transition: border .4s;
+  margin-left: .95rem;
+}
+
+.navbar-link:hover {
+  border-bottom: solid 2px var(--emphasis-color);
+  text-decoration: none;
+}
+
+.sidebar-navbar-link {
+  color: rgb(45,65,75);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.sidebar-navbar-link:hover {
+  text-decoration: none;
+}
+
+.sidebar-menu-button {
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer;
+  height: 1.1rem;
+  width: 1.1rem;
+  top: .9rem;
+  left: 1.5rem;
+  padding: .3rem;
+}
+
+.sidebar-menu-button  > * {
+  /* In event delegation, prevents child elements from being event.target */
+  pointer-events: none;
+}
+
+.headerlink {
+  text-decoration: none;
+  color: var(--emphasis-color);
+  padding-left: .5rem;
+  opacity: .4;
+  transition: opacity .2s;
+  visibility: hidden;
+}
+
+.headerlink:hover {
+  text-decoration: none;
+  opacity: .9;
+}
+
+dt:hover > a.headerlink,
+h1:hover > a.headerlink,
+h2:hover > a.headerlink,
+h3:hover > a.headerlink,
+h4:hover > a.headerlink,
+h5:hover > a.headerlink,
+h6:hover > a.headerlink,
+.caption:hover > a.headerlink,
+.caption-text:hover > a.headerlink,
+.code-block-caption:hover > a.headerlink {
+  visibility: visible;
+}
+
+.external-link-icon {
+  color: rgb(200,200,200);
+  padding-left: .2rem;
+  position: relative;
+  top: .1rem;
+}
+
+.relational-link {
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--emphasis-color);
+  border-bottom: solid 2px #fff;
+  padding-bottom: .1rem;
+  transition: border .4s;
+}
+
+.relational-link:hover {
+  border-bottom: solid 2px var(--emphasis-color);
+  text-decoration: none;
+}
+
+
+
+/* -- Layout ---------------------------------------------------------- */
+
+.main-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.navbar {
+  align-items: baseline;
+  background: #fff;
+  border-bottom: solid 1px rgb(230,230,230);
+  padding: 1rem 1.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar .logo {
+  height: 1.3rem;
+  margin-bottom: -.2rem;
+}
+
+.main-sidebar {
+  background: #fff;
+  padding-top: 2.8rem;
+  width: 20rem;
+  position: fixed;
+  overflow-y: auto;
+  top: 3.6rem;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border-right: solid 1px rgb(230,230,230);
+  z-index: 10;
+  transition: transform .3s ease;
+}
+
+.main-sidebar > div:last-of-type {
+  padding-bottom: 5rem;
+}
+
+.sidebar-mask {
+  /* Used to close sidebar when clicking off */
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 3.6rem;
+  left: 0;
+  z-index: 9;
+}
+
+.sidebar-mask--open {
+  display: block;
+}
+
+.sidebar-content {
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+  margin: 0 0 2rem 0;
+}
+
+.sidebar-content--divider {
+  border-bottom: solid 1px rgb(230,230,230);
+  padding-bottom: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+.sidebar-navbar-links {
+  display: none;
+}
+
+.main-content {
+  padding: 2.5rem 1.8rem;
+}
+
+.main-footer {
+  padding: 2.5rem 1.8rem;
+}
+
+.main-content--sidebar,
+.main-footer--sidebar {
+  margin-left: 20rem;
+}
+
+.last-updated {
+  font-size: .9rem;
+  text-align: right;
+}
+
+.last-updated .time {
+  color: rgb(170,170,170);
+}
+
+.relational-links {
+  display: flex;
+  justify-content: space-between;
+  border-top: solid 1px rgb(230,230,230);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.copyright,
+.created-with {
+  font-size: .9rem;
+  text-align: left;
+  line-height: 1.6rem;
+}
+
+@media (min-width: 1265px) {
+  .main-wrapper {
+    width: 1260px;
+    margin: auto;
+  }
+
+  .main-sidebar {
+    /* left: calc(50% - (1260px / 2)); */
+    width: 24rem;
+  }
+
+  .main-content--sidebar,
+  .main-footer--sidebar {
+    margin-left: 24rem;
+  }
+}
+
+@media (max-width: 959px) {
+  .main-sidebar {
+    width: 16.4rem;
+  }
+
+  .main-content--sidebar,
+  .main-footer--sidebar {
+    margin-left: 16.4rem;
+  }
+}
+
+@media (max-width: 719px) {
+  .main-sidebar {
+    padding-top: 1rem;
+    width: 16.4rem;
+    transform: translateX(-100%);
+  }
+
+  .main-sidebar--open {
+    transform: translateX(0);
+  }
+
+  .main-content--sidebar,
+  .main-footer--sidebar {
+    margin-left: 0;
+  }
+
+  .navbar {
+    padding-left: 4.2rem;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .sidebar-menu-button {
+    visibility: visible;
+  }
+
+  .sidebar-navbar-links {
+    display: block;
+  }
+}
+
+
+.highlight {
+  overflow-x: auto;
+}
+
+/* -- Sidebar toc --------------------------------------------------------- */
+
+.main-sidebar ul {
+  list-style-type: none;
+  margin-top: 0;
+  line-height: 1.8rem;
+  padding-left: 1.2rem;
+}
+
+.main-sidebar > ul {
+  padding-left: 1.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.main-sidebar li a,
+.sidebar-relation {
+  font-size: .9rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: rgb(40,60,70);
+  transition: color .2s;
+}
+
+.main-sidebar li a:hover,
+.sidebar-relation:hover {
+  text-decoration: none;
+  color: var(--emphasis-color);
+}
+
+.main-sidebar li.current > a {
+  color: var(--emphasis-color);
+  font-weight: 500;
+  display: block;
+  border-left: solid 8px var(--emphasis-color);
+  padding-left: calc(1.8rem - 8px);
+  margin-left: -1.8rem;
+}
+
+.main-sidebar li.current {
+  border-left: solid 8px var(--emphasis-color-light);
+  padding-left: calc(1.8rem - 8px);
+  margin-left: -1.8rem;
+}
+
+/* -- Sidebar searchbox --------------------------------------------------- */
+
+form.search {
+  display: flex;
+}
+
+.sidebar-search {
+  font-size: .9rem;
+  padding: .5rem;
+  box-sizing: border-box;
+}
+
+.sidebar-search--input {
+  border: solid 1px rgb(225,225,225);
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  color: rgb(40,60,70);
+  transition: border .3s;
+  flex-grow: 1;
+  width: 100px;
+}
+
+.sidebar-search--input:focus {
+  border: solid 1px var(--emphasis-color);
+  border-right: none;
+}
+
+.sidebar-search--btn {
+  background: transparent;
+  border: solid 1px var(--emphasis-color);
+  border-radius: 0 3px 3px 0;
+  color: var(--emphasis-color);
+  cursor: pointer;
+  transition: border .3s, color .3s;
+}
+
+.sidebar-search--btn:hover {
+  border: solid 1px var(--emphasis-color-dark);
+  color: var(--emphasis-color-dark);
+}
+
+/* -- Code blocks --------------------------------------------------------- */
+
+.docutils.literal {
+  background: rgba(27,31,51,.05);
+  color: rgb(70,100,130);
+  border-radius: 4px;
+  padding: .2rem .5rem;
+}
+
+
+.highlight,
+.highlighttable {
+  /* use with any light pygments theme like autumn */
+  background: rgba(27,31,51,.05);
+  /* use with any dark pygments theme like paraiso-dark */
+  /* background: rgba(40,44,52); */
+  border-radius: 4px;
+  line-height: 1.3rem;
+  margin-bottom: 1.8rem;
+}
+
+.highlight {
+  padding: .2rem 1.5rem;
+}
+
+.highlighttable {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  padding: 0 .3rem;
+}
+
+.highlighttable .highlight {
+  background: none;
+  margin-bottom: 0;
+}
+
+.code-block-caption {
+  font-size: .85rem;
+  margin-bottom: .5rem;
+  color: #000;
+  font-weight: 600;
+}
+
+.linenos {
+  color: rgba(150,150,150);
+}
+
+/* -- Admonitions --------------------------------------------------------- */
+
+/* .admonition {
+  background: none;
+  border: 1px solid rgb(230,230,230);
+  border-radius: 4px;
+  box-shadow: none;
+  color: rgb(95,95,95);
+  margin: 0 0 2.5rem 0;
+  padding: 1rem 1.25rem;
+  font-family: Lato, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+}
+
+.admonition.attention,
+.admonition.important {
+  background: rgb(241,243,245);
+  border: 1px solid rgb(234,234,234);
+}
+
+.admonition.caution,
+.admonition.warning {
+  background: rgb(255,229,206);
+  border: 1px solid rgb(255,215,180);
+}
+
+.admonition.danger,
+.admonition.error {
+  background: rgb(255,210,210);
+  border: 1px solid rgb(255,186,182);
+}
+
+.admonition.hint,
+.admonition.tip {
+  background: rgb(189,239,203);
+  border: 1px solid rgb(168,235,175);
+}
+
+.admonition.note {
+  background: rgb(204,241,255);
+  border: 1px solid rgb(178,233,255);
+}
+
+.admonition.seealso {
+}
+
+.admonition-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.admonition-title::before {
+  display: inline-block;
+  position: relative;
+  font-family: "Font Awesome 5 Free";
+  font-size: .95rem;
+  font-style: normal;
+  font-variant: normal;
+  padding-right: .7rem;
+  top: -.05rem;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.admonition.attention .admonition-title::before,
+.admonition.important .admonition-title::before {
+  content: "\f06a";
+  font-weight: 900;
+}
+
+.admonition.caution .admonition-title::before,
+.admonition.warning .admonition-title::before {
+  content: "\f071";
+  font-weight: 900;
+}
+
+.admonition.danger .admonition-title::before,
+.admonition.error .admonition-title::before {
+  content: "\f06a";
+  font-weight: 900;
+}
+
+.admonition.hint .admonition-title::before,
+.admonition.tip .admonition-title::before {
+  content: "\f0eb";
+  font-weight: 400;
+}
+
+.admonition.note .admonition-title::before {
+  content: "\f044";
+  font-weight: 900;
+}
+
+.admonition.seealso .admonition-title::before {
+  content: "\f06e";
+  font-weight: 900;
+} */
+
+
+/* -- Admonitions --------------------------------------------------------- */
+
+.admonition {
+  background: none;
+  border-left: 8px solid rgb(220,220,220);
+  border-right: 1px solid rgb(230,230,230);
+  border-top: 1px solid rgb(230,230,230);
+  border-bottom: 1px solid rgb(230,230,230);
+  box-shadow: none;
+  color: rgb(95,95,95);
+  margin: 0 0 2.5rem 0;
+  padding: 1.25rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+}
+
+.admonition.attention,
+.admonition.important {
+  background: rgb(231,233,235);
+  border-left: 8px solid rgb(120,120,120);
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  color: rgb(48,65,83);
+}
+
+.admonition.caution,
+.admonition.warning {
+  background: rgb(255,247,208);
+  border-left: 8px solid rgb(231,192,0);
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  color: rgb(107,89,0);
+}
+
+.admonition.danger,
+.admonition.error {
+  background: rgb(255,230,230);
+  border-left: 8px solid rgb(204,0,0);
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  color: rgb(77,0,0);
+}
+
+.admonition.hint,
+.admonition.tip {
+  background: rgb(243,245,247);
+  border-left: 8px solid rgb(66,185,131);
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  color: rgb(44,62,80);
+}
+
+.admonition.note {
+  background: rgb(229,241,251);
+  border-left: 8px solid rgb(95,170,234);
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  color: rgb(44,62,80);
+}
+
+.admonition.seealso {
+}
+
+.admonition-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.admonition-title::before {
+  display: inline-block;
+  position: relative;
+  font-family: "Font Awesome 5 Free";
+  font-size: .85rem;
+  font-style: normal;
+  font-variant: normal;
+  padding-right: .5rem;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.admonition.attention .admonition-title::before,
+.admonition.important .admonition-title::before {
+  content: "\f06a";
+  font-weight: 900;
+}
+
+.admonition.caution .admonition-title::before,
+.admonition.warning .admonition-title::before {
+  content: "\f071";
+  font-weight: 900;
+}
+
+.admonition.danger .admonition-title::before,
+.admonition.error .admonition-title::before {
+  content: "\f06a";
+  font-weight: 900;
+}
+
+.admonition.hint .admonition-title::before,
+.admonition.tip .admonition-title::before {
+  content: "\f0eb";
+  font-weight: 400;
+}
+
+.admonition.note .admonition-title::before {
+  content: "\f044";
+  font-weight: 900;
+}
+
+.admonition.seealso .admonition-title::before {
+  content: "\f06e";
+  font-weight: 900;
+}
+
+
+/* -- Tables -------------------------------------------------------------- */
+
+table.docutils {
+  border: solid 1px rgb(0,0,0);
+  text-align: left;
+  border-spacing: 0;
+  /* border-collapse: collapse; */
+  width: 100%;
+  overflow-x: auto;
+}
+
+table.docutils th,
+table.docutils td {
+  padding: .5rem 1rem 0 1rem;
+  vertical-align: top;
+}
+
+table.docutils th,
+table.docutils td {
+  border: solid .5px rgb(230,230,230);
+}
+
+table.docutils tr.row-even {
+  background: rgb(245,246,247);
+}
+
+table.docutils p {
+  margin-bottom: .7rem;
+}
+
+table.docutils ul,
+table.docutils ol {
+  margin: 0 0 .7rem 0;
+}
+
+table.docutils li p {
+  margin: 0;
+}
+
+
+/* -- Footnotes & Citation  ----------------------------------------------- */
+
+dl.footnote,
+dl.citation {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-gap: 0;
+  margin: 0 0 1.75rem 0;
+}
+
+dl.footnote + dl.citation,
+dl.citation + dl.footnote {
+  margin: -1rem 0 1.75rem 0;
+}
+
+dl.footnote dt,
+dl.citation dt {
+  font-style: normal;
+}
+
+dl.footnote dd,
+dl.citation dd {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+dl.footnote dt,
+dl.footnote dd,
+dl.citation dt,
+dl.citation dd {
+  border-bottom: solid 1px rgb(230,230,230);
+}
+
+dl.footnote dt:not(:last-of-type),
+dl.footnote dd:not(:last-of-type),
+dl.citation dt:not(:last-of-type),
+dl.citation dd:not(:last-of-type) {
+  margin-bottom: .75rem;
+}
+
+dl.footnote p,
+dl.citation p {
+  margin: 0 0 .75rem 0;
+}
+
+
+/* -- State --------------------------------------------------------------- */
+
+/* -- Utility ------------------------------------------------------------- */
+
+/* -- Hacks --------------------------------------------------------------- */
+
+:target::before {
+  /* To shift fragment links so they're visible below fixed header */
+  content: "";
+  display: block;
+  height: 4rem; /* fixed header height */
+  margin-top: -4rem; /* negative fixed header height */
+}
