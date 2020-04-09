@@ -23,9 +23,27 @@ function toggleSidebar() {
 
 }
 
+/**
+ * Add the language to codeblocks
+ */
+function codeblockLanguage() {
+  let codeblocks = document.querySelectorAll('div[class^="highlight-"]');
+  for (let i = 0; i < codeblocks.length; i++) {
+    let language = codeblocks[i].className.split(' ')[0].split('-')[1];
+    if (language !== 'default') {
+      let el = document.createElement('div');
+      el.className = 'code-block-language';
+      el.textContent = language;
+      codeblocks[i].appendChild(el);
+    }
+  }
+}
+
+
 window.addEventListener('load', function() {
   if (document.querySelector('.js-year')) {
     currentYear();
+    codeblockLanguage();
   }
 }, false);
 

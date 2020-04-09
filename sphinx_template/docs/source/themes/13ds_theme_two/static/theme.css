@@ -74,7 +74,7 @@ dl,
   line-height: 1.7;
 }
 
-/* blockquote {
+blockquote {
   margin: 0;
   padding-left: 2.5rem;
   padding-top: 1rem;
@@ -83,15 +83,6 @@ dl,
   border-right: solid 1px rgb(230,230,230);
   border-bottom: solid 1px rgb(230,230,230);
   border-radius: 4px;
-  color: rgb(120,120,120);
-} */
-
-blockquote {
-  margin: 0;
-  padding-left: 2.5rem;
-  padding-top: 1rem;
-  padding-bottom: .01rem;
-  border-left: solid 8px rgb(230,230,230);
   color: rgb(120,120,120);
 }
 
@@ -117,6 +108,7 @@ blockquote {
   font-size: .85rem;
   font-style: italic;
 }
+
 
 /* -- Lists --------------------------------------------------------------- */
 
@@ -203,6 +195,11 @@ dd {
 .option-list p {
   margin-bottom: .8rem;
 }
+
+ul.search {
+  line-height: 1.7;
+}
+
 
 /* -- Links & Buttons ----------------------------------------------------- */
 
@@ -316,7 +313,6 @@ h6:hover > a.headerlink,
   border-bottom: solid 2px var(--emphasis-color);
   text-decoration: none;
 }
-
 
 
 /* -- Layout ---------------------------------------------------------- */
@@ -496,6 +492,7 @@ h6:hover > a.headerlink,
   overflow-x: auto;
 }
 
+
 /* -- Sidebar toc --------------------------------------------------------- */
 
 .main-sidebar ul {
@@ -540,11 +537,14 @@ h6:hover > a.headerlink,
   margin-left: -1.8rem;
 }
 
-/* -- Sidebar searchbox --------------------------------------------------- */
+
+/* -- Searchboxes --------------------------------------------------------- */
 
 form.search {
   display: flex;
 }
+
+/* -- Sidebar searchbox --------------------------------------------------- */
 
 .sidebar-search {
   font-size: .9rem;
@@ -581,6 +581,69 @@ form.search {
   color: var(--emphasis-color-dark);
 }
 
+
+/* -- Search page searchbox ----------------------------------------------- */
+
+.main-search {
+  font-size: .9rem;
+  padding: .5rem;
+  box-sizing: border-box;
+}
+
+.main-search--input {
+  border: solid 1px rgb(225,225,225);
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  color: rgb(40,60,70);
+  transition: border .3s;
+  flex-grow: 1;
+  width: 100px;
+}
+
+.main-search--input:focus {
+  border: solid 1px var(--emphasis-color);
+  border-right: none;
+}
+
+.main-search--btn {
+  background: transparent;
+  border: solid 1px var(--emphasis-color);
+  border-radius: 0 3px 3px 0;
+  color: var(--emphasis-color);
+  cursor: pointer;
+  transition: border .3s, color .3s;
+}
+
+.main-search--btn:hover {
+  border: solid 1px var(--emphasis-color-dark);
+  color: var(--emphasis-color-dark);
+}
+
+
+/* -- Index toc ----------------------------------------------------------- */
+
+.toctree-wrapper ul {
+  line-height: 1.8rem;
+}
+
+.toctree-wrapper > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.toctree-wrapper .toctree-l1 ul {
+  list-style-type: disc;
+}
+
+.toctree-wrapper .toctree-l2 ul {
+  list-style-type: circle;
+}
+
+.toctree-wrapper .toctree-l3 ul {
+  list-style-type: square;
+}
+
+
 /* -- Code blocks --------------------------------------------------------- */
 
 .docutils.literal {
@@ -589,7 +652,6 @@ form.search {
   border-radius: 4px;
   padding: .2rem .5rem;
 }
-
 
 .highlight,
 .highlighttable {
@@ -630,9 +692,23 @@ form.search {
   color: rgba(150,150,150);
 }
 
+div[class^="highlight-"] {
+  position: relative;
+}
+
+.code-block-language {
+  color: rgba(160,160,160,.7);
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  font-size: .7rem;
+  font-weight: 500;
+}
+
+
 /* -- Admonitions --------------------------------------------------------- */
 
-/* .admonition {
+.admonition {
   background: none;
   border: 1px solid rgb(230,230,230);
   border-radius: 4px;
@@ -693,128 +769,6 @@ form.search {
   font-variant: normal;
   padding-right: .7rem;
   top: -.05rem;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-}
-
-.admonition.attention .admonition-title::before,
-.admonition.important .admonition-title::before {
-  content: "\f06a";
-  font-weight: 900;
-}
-
-.admonition.caution .admonition-title::before,
-.admonition.warning .admonition-title::before {
-  content: "\f071";
-  font-weight: 900;
-}
-
-.admonition.danger .admonition-title::before,
-.admonition.error .admonition-title::before {
-  content: "\f06a";
-  font-weight: 900;
-}
-
-.admonition.hint .admonition-title::before,
-.admonition.tip .admonition-title::before {
-  content: "\f0eb";
-  font-weight: 400;
-}
-
-.admonition.note .admonition-title::before {
-  content: "\f044";
-  font-weight: 900;
-}
-
-.admonition.seealso .admonition-title::before {
-  content: "\f06e";
-  font-weight: 900;
-} */
-
-
-/* -- Admonitions --------------------------------------------------------- */
-
-.admonition {
-  background: none;
-  border-left: 8px solid rgb(220,220,220);
-  border-right: 1px solid rgb(230,230,230);
-  border-top: 1px solid rgb(230,230,230);
-  border-bottom: 1px solid rgb(230,230,230);
-  box-shadow: none;
-  color: rgb(95,95,95);
-  margin: 0 0 2.5rem 0;
-  padding: 1.25rem 1.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.6rem;
-}
-
-.admonition.attention,
-.admonition.important {
-  background: rgb(231,233,235);
-  border-left: 8px solid rgb(120,120,120);
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 0;
-  color: rgb(48,65,83);
-}
-
-.admonition.caution,
-.admonition.warning {
-  background: rgb(255,247,208);
-  border-left: 8px solid rgb(231,192,0);
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 0;
-  color: rgb(107,89,0);
-}
-
-.admonition.danger,
-.admonition.error {
-  background: rgb(255,230,230);
-  border-left: 8px solid rgb(204,0,0);
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 0;
-  color: rgb(77,0,0);
-}
-
-.admonition.hint,
-.admonition.tip {
-  background: rgb(243,245,247);
-  border-left: 8px solid rgb(66,185,131);
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 0;
-  color: rgb(44,62,80);
-}
-
-.admonition.note {
-  background: rgb(229,241,251);
-  border-left: 8px solid rgb(95,170,234);
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 0;
-  color: rgb(44,62,80);
-}
-
-.admonition.seealso {
-}
-
-.admonition-title {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: .5rem;
-}
-
-.admonition-title::before {
-  display: inline-block;
-  position: relative;
-  font-family: "Font Awesome 5 Free";
-  font-size: .85rem;
-  font-style: normal;
-  font-variant: normal;
-  padding-right: .5rem;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
 }
@@ -939,10 +893,6 @@ dl.citation p {
   margin: 0 0 .75rem 0;
 }
 
-
-/* -- State --------------------------------------------------------------- */
-
-/* -- Utility ------------------------------------------------------------- */
 
 /* -- Hacks --------------------------------------------------------------- */
 

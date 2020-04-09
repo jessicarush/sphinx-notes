@@ -242,7 +242,10 @@ $ ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~
 Line Blocks
 -----------
 
-| a pipe ``\|`` at the start of a line is said to be a way of preserving line breaks. In reality, it just wraps the line in its own div ``<div class="line">``
+A pipe ``|`` at the start of a line is said to be a way of preserving line breaks.
+
+| In reality, it just replaces the <p> with a div: ``<div class="line-block">``
+| And wraps each line in its own div: ``<div class="line">``
 
 
 Doctest blocks

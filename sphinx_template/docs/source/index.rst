@@ -12,8 +12,16 @@
    :robots: index, follow
 
 
-Example documentation
+Example's documentation
 =====================
+
+A brief summary of the library or product that this documentation describes. List any other resources that can be found outside of this documentation.
+
+Should we provide instructions for editing the documentation here?
+
+
+Contents
+--------
 
 .. toctree::
    :maxdepth: 4
