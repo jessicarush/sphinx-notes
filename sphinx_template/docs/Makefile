@@ -2,7 +2,7 @@
 
 # You can set these variables from the command line, and also
 # from the environment for the first two.
-SPHINXOPTS    ?= -d source/doctrees/
+SPHINXOPTS    ?= -d source/_doctrees/
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = ../docs

@@ -36,7 +36,7 @@ release = '1.0.0beta'
 extensions = []
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['templates']
+templates_path = ['_templates']
 
 # The document name of the “master” document, that is, the document that
 # contains the root toctree directive. Default is 'index'.
@@ -95,12 +95,12 @@ html_theme_options = {
 
 # A list of paths that contain custom themes, either as subdirectories or as
 # zip files. Relative paths are relative to the configuration directory
-html_theme_path = ['themes']
+html_theme_path = ['_themes']
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['static']
+html_static_path = ['_static']
 
 # The style sheet to use for HTML pages. The filename must be relative to the
 # html_static_path. Default is the stylesheet given by the selected theme.
@@ -132,11 +132,11 @@ html_short_title = 'Example'
 
 # If given, this must be the name of an image file (path relative to the
 # configuration directory). It is placed at the top of the sidebar.
-html_logo = 'static/img/logo.svg'
+html_logo = '_static/logo.svg'
 
 # Favicon file (path relative to the configuration directory). It should be a
 # Windows-style icon file (.ico), 32x32 pixels.
-html_favicon = 'static/img/favicon.ico'
+html_favicon = '_static/favicon.ico'
 
 # Sphinx adds permalinks for each heading. This value determines the text for
 # the permalink (it defaults to "¶") and is visible on hover.

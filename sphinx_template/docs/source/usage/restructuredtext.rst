@@ -462,7 +462,7 @@ Note that with many directives, there is a main option that is placed on the sam
   .. code-block:: javascript
     :linenos:
 
-  .. image:: ../static/img/logo.svg
+  .. image:: ../_static/logo.svg
     :width: 25px
 
   .. _`github`: https://github.com/
@@ -481,7 +481,7 @@ Possible options include:
 
 .. code-block:: rst
 
-  .. image:: ../static/img/logo.svg
+  .. image:: ../_static/logo.svg
     :width: 25px
     :height: 25px
     :alt: alternate text
@@ -494,7 +494,7 @@ Possible options include:
 
 Example:
 
-.. image:: ../static/img/logo.svg
+.. image:: ../_static/logo.svg
   :width: 25px
   :alt: alternate text
   :target: `reStructuredText`_
@@ -508,7 +508,7 @@ Note that images are often placed as substitutions, for example:
 
   a bunch of content
 
-  .. |diagram| image:: ../static/img/diagram1.svg
+  .. |diagram| image:: ../_static/diagram1.svg
     :alt: alternate text
     :class: diagram-full
 
@@ -520,7 +520,7 @@ A figure directive coverts to an html ``<div>``, ``<img>`` and ``<p>``.
 
 .. code-block:: rst
 
-  .. figure:: ../static/img/logo.svg
+  .. figure:: ../_static/logo.svg
      :alt: alternate text
      :width: 100px
 
@@ -528,7 +528,7 @@ A figure directive coverts to an html ``<div>``, ``<img>`` and ``<p>``.
 
 Example:
 
-.. figure:: ../static/img/logo.svg
+.. figure:: ../_static/logo.svg
    :alt: alternate text
    :width: 100px
 
