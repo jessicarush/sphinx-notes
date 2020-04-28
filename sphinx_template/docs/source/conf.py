@@ -20,6 +20,8 @@
 project = 'Example'
 copyright = '13 Down Software'
 author = '13 Down Software'
+github_repo = 'https://github.com/'
+copyright_link = 'https://github.com/aleph2c'
 
 # The major project version
 version = '1.0'
@@ -86,11 +88,13 @@ html_theme = '13ds_theme_one'
 
 # A dictionary of options that influence the look and feel of the selected
 # theme. These are theme-specific. See the theme's theme.conf
+# Theme values can be accessed in the jinja template as theme_option,
+# For example: {{ theme_navbar_logo }}
 # https://sphinx.readthedocs.io/en/latest/usage/theming.html#builtin-themes
 html_theme_options = {
-  # 'nosidebar': True,
+  'nosidebar': False,
   'navbar_logo': False,
-  'docs_start': 'usage/installation'
+  'docs_start': 'usage/installation',
   }
 
 # A list of paths that contain custom themes, either as subdirectories or as
@@ -149,7 +153,10 @@ html_add_permalinks = '#'
 # sourcelink.html – a link to the source of the current document, if enabled
 # in html_show_sourcelink
 # searchbox.html – the “quick search” box
-# In addition to these you can create your own and save to 'templates'
+# In addition to these you can create your own and save to 'templates'.
+# Style rules: sidebar content must be wrapped in one of the following:
+# <ul>, <h2 class="sidebar-heading"> or other with class="sidebar-content"
+# See sidebar_example.html
 html_sidebars = {
    '**': [
      # 'localtoc.html',
@@ -167,14 +174,17 @@ html_sidebars = {
 
 # A dictionary of values to pass into the template engine’s context for all
 # pages. ie These values can be referenced like {{ github_url }}
-html_context = {'github_url': 'https://github.com/'}
+html_context = {
+  'github_url': github_repo,
+  'copyright_link': copyright_link
+}
 
 # If true, the reST sources are included in the HTML build as _sources/name.
-html_copy_source = False
+html_copy_source = True
 
 # If true (and html_copy_source is true as well), links to the reST sources
 # will be added to the sidebar.
-html_show_sourcelink = False
+html_show_sourcelink = True
 
 # If true, “(C) Copyright …” is shown in the HTML footer.
 html_show_copyright = True

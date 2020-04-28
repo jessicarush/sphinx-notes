@@ -121,49 +121,59 @@
       {% if render_sidebar %}
       <div class="main-content main-content--sidebar">
       {% else %}
-      <div class="main-content">
+      <div class="main-content main-content--nosidebar">
       {% endif %}
         {% block document %}
           {% block body %}
             {# rst content goes here #}
           {% endblock %}
         {% endblock %}
+        <div class="main-content__right-sidebar">
+          <h2 class="sidebar-heading">On this page:</h2>
+        </div>
       </div>
     </main>
 
-    {% if render_sidebar %}
-    <footer class="main-footer main-footer--sidebar">
-    {% else %}
-    <footer class="main-footer">
-    {% endif %}
-      {% if last_updated %}
-      <div class="last-updated">
-        <span class="prefix">Last updated:</span>
-        <span class="time">{{ last_updated }}</span>
-      </div>
+    <div class="footer-wrapper">
+      {% if render_sidebar %}
+      <footer class="main-footer main-footer--sidebar">
+      {% else %}
+      <footer class="main-footer main-footer--nosidebar">
       {% endif %}
-      <div class="relational-links">
-        <div>
-          {% if prev %}
-          ← <a class="relational-link" href="{{ prev.link|e }}" title="{{ _('previous chapter') }}">{{ prev.title }}</a>
+        <div class="relational-links">
+          <div>
+            {% if prev %}
+            ← <a class="relational-link" href="{{ prev.link|e }}" title="{{ _('previous chapter') }}">{{ prev.title }}</a>
+            {% endif %}
+          </div>
+          <div>
+            {% if next %}
+             <a class="relational-link" href="{{ next.link|e }}" title="{{ _('next chapter') }}">{{ next.title }}</a> →
+            {% endif %}
+          </div>
+        </div>
+        {% if show_copyright %}
+        <div class="copyright">
+          © Copyright <span class="js-year"></span>,
+          {% if copyright_link %}
+          <a href="{{ copyright_link }}">{{ copyright }}</a>.
+          {% else %}
+          {{ copyright }}.
           {% endif %}
         </div>
-        <div>
-          {% if next %}
-           <a class="relational-link" href="{{ next.link|e }}" title="{{ _('next chapter') }}">{{ next.title }}</a> →
-          {% endif %}
+        {% endif %}
+        {% if last_updated %}
+        <div class="last-updated">
+          <span class="prefix">Last updated:</span>
+          <span class="time">{{ last_updated }}</span>
         </div>
-      </div>
-      {% if show_copyright %}
-      <div class="copyright">
-        © Copyright <span class="js-year"></span>, {{ copyright }}.
-      </div>
-      {% endif %}
-      {% if show_sphinx %}
-      <div class="created-with">
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }} with <span class="theme">13ds_theme_one</span>.
-      </div>
-      {% endif %}
-    </footer>
+        {% endif %}
+        {% if show_sphinx %}
+        <div class="created-with">
+          Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }} with <span class="theme">13ds_theme_one</span>.
+        </div>
+        {% endif %}
+      </footer>
+    </div>
   </body>
 </html>

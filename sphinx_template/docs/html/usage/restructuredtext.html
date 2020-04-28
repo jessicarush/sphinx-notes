@@ -138,6 +138,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#containers">Containers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#epigraphs">Epigraphs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#meta">Meta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raw-html">Raw HTML</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#other">Other</a></li>
@@ -164,6 +165,13 @@
         
         
 
+
+<div role="note" aria-label="source link">
+  <h2 class="sidebar-heading">Page Source</h2>
+  <div class="sidebar-content">
+    <a class="sidebar-relation" href="../_sources/usage/restructuredtext.rst.txt" rel="nofollow">Show reStructuredText</a>
+  </div>
+</div>
 
         
         <h2 class="sidebar-heading">Custom section</h2>
@@ -223,13 +231,15 @@
 <div class="section" id="section-structure">
 <h2>Section Structure<a class="headerlink" href="#section-structure" title="Permalink to this headline">#</a></h2>
 <p>It would appear that you can use any nonalphanumeric character to indicate a heading. All you have to do is underline (or over and underline) to at least the same length as the text. If the second heading uses a different character, it will be treated as a subheading and so on.</p>
-<p>The python convention is this:
-- <code class="docutils literal notranslate"><span class="pre">#</span></code> with overline, for parts
-- <code class="docutils literal notranslate"><span class="pre">*</span></code> with overline, for chapters
-- <code class="docutils literal notranslate"><span class="pre">=</span></code>, for sections
-- <code class="docutils literal notranslate"><span class="pre">-</span></code>, for subsections
-- <code class="docutils literal notranslate"><span class="pre">^</span></code>, for subsubsections
-- <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, for paragraphs</p>
+<p>The python convention is this:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> with overline, for parts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> with overline, for chapters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code>, for sections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code>, for subsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code>, for subsubsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, for paragraphs</p></li>
+</ul>
 <p>I don’t really get what their distinction is between parts, chapters and sections and why there’s one for paragraphs but… the point is, select a pattern and stick to it. For example, in this page I’ve used:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">================</span>
 <span class="n">Main</span> <span class="n">Title</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span>
@@ -296,7 +306,7 @@ Scott Volk</p>
 <dd class="field-even"><p>1.0</p>
 </dd>
 <dt class="field-odd">Last update</dt>
-<dd class="field-odd"><p>Apr 08, 2020</p>
+<dd class="field-odd"><p>Apr 27, 2020</p>
 </dd>
 </dl>
 </div>
@@ -632,6 +642,7 @@ span rows.</p></td>
 <li><p><a class="reference internal" href="#containers">Containers</a></p></li>
 <li><p><a class="reference internal" href="#epigraphs">Epigraphs</a></p></li>
 <li><p><a class="reference internal" href="#meta">Meta</a></p></li>
+<li><p><a class="reference internal" href="#raw-html">Raw HTML</a></p></li>
 </ul>
 <p>Note that with many directives, there is a main option that is placed on the same line as the name of the directive. For examples, with code blocks—the language, with images—the file path, with links—the URI. For example:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> javascript
@@ -662,11 +673,11 @@ span rows.</p></td>
   <span class="nc">:scale:</span> <span class="nf">50</span>
   <span class="nc">:align:</span> <span class="nf">left</span>
   <span class="nc">:name:</span> <span class="nf">logo</span>
-  <span class="nc">:class:</span> <span class="nf">example</span>
+  <span class="nc">:class:</span> <span class="nf">scale-to-fit</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<a class="reference internal image-reference" href="#restructuredtext"><img alt="alternate text" class="example" src="../_images/logo.svg" width="25px" /></a>
+<a class="reference internal image-reference" href="#restructuredtext"><img alt="alternate text" class="scale-to-fit" src="../_images/logo.svg" /></a>
 <p>Note that images are often placed as substitutions, for example:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>|diagram|
 
@@ -750,6 +761,16 @@ a bunch of content
 </pre></div>
 </div>
 </div>
+<div class="section" id="raw-html">
+<h3>Raw HTML<a class="headerlink" href="#raw-html" title="Permalink to this headline">#</a></h3>
+<p>The raw directive indicates non-reStructuredText data that is to be passed untouched to the Writer. For example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
+
+  &lt;p&gt;&lt;input placeholder=&quot;testing raw&quot;&gt;&lt;p&gt;
+</pre></div>
+</div>
+<p>Outputs:</p>
+<p><input placeholder="testing raw"><p></div>
 </div>
 <div class="section" id="other">
 <h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">#</a></h2>
@@ -761,40 +782,48 @@ a bunch of content
 
 
         
+        <div class="main-content__right-sidebar">
+          <h2 class="sidebar-heading">On this page:</h2>
+        </div>
       </div>
     </main>
 
-    
-    <footer class="main-footer main-footer--sidebar">
-    
+    <div class="footer-wrapper">
       
-      <div class="last-updated">
-        <span class="prefix">Last updated:</span>
-        <span class="time">Apr 08, 2020 6:42 PM</span>
-      </div>
+      <footer class="main-footer main-footer--sidebar">
       
-      <div class="relational-links">
-        <div>
+        <div class="relational-links">
+          <div>
+            
+            ← <a class="relational-link" href="quickstart.html" title="previous chapter">Quickstart</a>
+            
+          </div>
+          <div>
+            
+             <a class="relational-link" href="testing.html" title="next chapter">Testing</a> →
+            
+          </div>
+        </div>
+        
+        <div class="copyright">
+          © Copyright <span class="js-year"></span>,
           
-          ← <a class="relational-link" href="quickstart.html" title="previous chapter">Quickstart</a>
+          <a href="https://github.com/aleph2c">13 Down Software</a>.
           
         </div>
-        <div>
-          
-           <a class="relational-link" href="testing.html" title="next chapter">Testing</a> →
-          
+        
+        
+        <div class="last-updated">
+          <span class="prefix">Last updated:</span>
+          <span class="time">Apr 27, 2020 7:35 PM</span>
         </div>
-      </div>
-      
-      <div class="copyright">
-        © Copyright <span class="js-year"></span>, 13 Down Software.
-      </div>
-      
-      
-      <div class="created-with">
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0 with <span class="theme">13ds_theme_one</span>.
-      </div>
-      
-    </footer>
+        
+        
+        <div class="created-with">
+          Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0 with <span class="theme">13ds_theme_one</span>.
+        </div>
+        
+      </footer>
+    </div>
   </body>
 </html>
