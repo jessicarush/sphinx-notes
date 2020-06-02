@@ -69,8 +69,9 @@ rst_epilog = '''
 
 # The style name to use for Pygments highlighting of source code.
 # If not set, either the theme’s default style or 'sphinx' is selected.
-# A good dark style is 'paraiso-dark', a good light one is 'autumn'.
-pygments_style = 'autumn'
+# A good dark style is 'paraiso-dark', 'native' or 'monokai'.
+# A good light style is 'paraiso-light', 'autumn' or 'murphy'.
+pygments_style = 'paraiso-dark'
 
 
 # -- Internationalization ----------------------------------------------------

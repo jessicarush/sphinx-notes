@@ -19,6 +19,8 @@ A brief summary of the library or product that this documentation describes. Lis
 
 Should we provide instructions for editing the documentation here?
 
+.. Note that the following toctree is the "globaltoc". If globaltoc.html is
+   being used in the html_sidebars option, then the same maxdepth will apply.
 
 Contents
 --------

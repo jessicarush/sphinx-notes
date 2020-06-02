@@ -28,13 +28,50 @@ External `reference phrase`_
 
 `Internal reference`_
 
-Section titles, footnotes, and citations automatically generate hyperlink targets (the title text or footnote/citation label is used as the hyperlink name). These are called implicit links. For example, here is an implicit link to `Grid tables`_.
+Section titles, footnotes, and citations automatically generate hyperlink targets (the title text or footnote/citation label is used as the hyperlink name). These are called *implicit links*. For example, here is an implicit link to `Grid tables`_.
 
 Footnote reference [1]_, and another [2]_
 
 Citation reference [CIT2002]_
 
 Full urls are automatically made into references, for example, https://docutils.sourceforge.io/rst.html
+
+You can reference arbitrary locations in another document within your documentation using labels. If you place a label directly before a section title, you can link to it like so:
+
+To create a label before a section heading:
+
+::
+
+  .. _my-section-label:
+
+  Section Heading
+  ---------------
+
+To link to a label placed before a section heading:
+
+::
+
+  For example see :ref:`my-section-label`.
+
+For example see :ref:`my-section-label`.
+
+Note that the heading text will be inserted as the link.
+
+Labels that *aren’t* placed before a section title can still be referenced to, but you must give the link an explicit title, using this syntax: ``:ref:`Link title <label-name>```.
+
+To create a label *not* placed before a section heading:
+
+::
+
+  .. _my-non-section-label:
+
+To link to a label *not* placed before a section heading:
+
+::
+
+  For example see: :ref:`my reference <my-non-section-label>`
+
+For example see: :ref:`my reference <my-non-section-label>`.
 
 Substitutions
 -------------

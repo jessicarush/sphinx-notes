@@ -16,7 +16,7 @@ html {
 }
 
 @media (min-width: 1600px) {
-  html { font-size: 17px; }
+  html { font-size: 16.5px; }
 }
 
 body {
@@ -69,7 +69,7 @@ h5 {
   color: rgb(45,65,75);
   font-size: 1.1rem;
   font-weight: 600;
-  margin: 1.5rem 0 0 0;
+  margin: 2rem 0 0 0;
   line-height: 1.4em;
 }
 
@@ -104,7 +104,7 @@ blockquote {
 
 .sidebar-heading {
   border: none;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin: 0;
   padding: 0 1.8rem .4rem 1.8rem;
@@ -343,6 +343,48 @@ h6:hover > a.headerlink,
 }
 
 
+/* -- Images ------------------------------------------------------------- */
+
+.scale-to-fit {
+  /* For images that should scale up to content width on large screens */
+  width: 100%;
+  padding-bottom: .5rem;
+  margin: 2rem 0 0 0;
+}
+
+.noscale-center {
+  /* For images that should NOT scale up on large screens */
+  max-width: 100%;
+  display: block;
+  margin: 1.25rem auto 0 auto;
+}
+
+.noscale-left {
+  /* For images that should NOT scale up on large screens */
+  max-width: 100%;
+  display: block;
+  margin: 1.25rem 0 0 0;
+}
+
+.noscale-left-wrap {
+  /* For images that allow text to flow around them */
+  max-width: 100%;
+  float: left;
+  margin: 1.25rem 1.25rem 0 0;
+}
+
+.noscale-right-wrap {
+  /* For images that allow text to flow around them */
+  max-width: 100%;
+  float: right;
+  margin: 1.25rem 0 0 1.25rem;
+}
+
+.figure {
+  margin: 2rem 0 0 0;
+}
+
+
 /* -- Layout ---------------------------------------------------------- */
 
 .main-header {
@@ -409,8 +451,8 @@ h6:hover > a.headerlink,
 
 .sidebar-content--divider {
   border-bottom: solid 1px rgb(230,230,230);
-  margin: 0 0 1rem 0;
   padding-bottom: 1rem;
+  margin: 0 0 1rem 0;
 }
 
 .sidebar-navbar-links {
@@ -559,7 +601,7 @@ h6:hover > a.headerlink,
 .main-sidebar > ul {
   margin-bottom: 1.6rem;
   padding-left: 1.8rem;
-  padding-right: .8rem;
+  padding-right: 1.8rem;
 }
 
 .main-sidebar li a,
@@ -577,7 +619,7 @@ h6:hover > a.headerlink,
   text-decoration: none;
 }
 
-.main-sidebar li.current > a {
+.main-sidebar li.toctree-l1.current > a {
   border-left: solid 8px var(--emphasis-color);
   color: var(--emphasis-color);
   display: block;
@@ -586,23 +628,10 @@ h6:hover > a.headerlink,
   padding-left: calc(1.8rem - 8px);
 }
 
-.main-sidebar li.current {
+.main-sidebar li.toctree-l1.current {
   border-left: solid 8px var(--emphasis-color-light);
   margin-left: -1.8rem;
   padding-left: calc(1.8rem - 8px);
-}
-
-
-/* -- Images ------------------------------------------------------------- */
-
-.scale-to-fit {
-  width: 100%;
-  padding-bottom: .5rem;
-  margin: 2rem 0 0 0;
-}
-
-.figure {
-  margin: 2rem 0 0 0;
 }
 
 /* -- Searchboxes --------------------------------------------------------- */
@@ -717,22 +746,26 @@ form.search {
 /* -- Code blocks --------------------------------------------------------- */
 
 .docutils.literal {
-  background: rgba(27,31,51,.05);
+  background: rgb(243,243,244);
   border-radius: 4px;
   color: rgb(70,100,130);
   padding: .2rem .5rem;
 }
 
-
 .highlight,
 .highlighttable {
   /* use with any light pygments theme like autumn */
-  background: rgba(27,31,51,.05);
+  /* background: rgb(243,243,244); */
   /* use with any dark pygments theme like paraiso-dark */
-  /* background: rgba(40,44,52); */
+  background: rgba(40,44,52);
   border-radius: 4px;
   line-height: 1.3rem;
   margin-top: 1.25rem;
+}
+
+.admonition .highlight,
+.admonition .highlighttable {
+  box-shadow: 0 0 8px rgba(60,60,60,.1);
 }
 
 .highlight {
@@ -772,10 +805,11 @@ div[class^="highlight-"] {
 .code-block-language {
   color: rgba(160,160,160,.7);
   position: absolute;
-  top: 7px;
+  top: 6px;
   right: 10px;
-  font-size: .7rem;
+  font-size: .65rem;
   font-weight: 500;
+  line-height: 1em;
 }
 
 /* -- Admonitions --------------------------------------------------------- */
@@ -951,11 +985,13 @@ dl.citation {
   grid-gap: 0;
   display: grid;
   grid-template-columns: 1fr 5fr;
-  margin: 1.25rem 0 0 0;
+  margin: 3rem 0 0 0;
+  border-top: solid 1px rgb(230,230,230);
 }
 
 dl.footnote + dl.citation,
 dl.citation + dl.footnote {
+  border-top: none;
   margin: 0;
 }
 
@@ -978,6 +1014,32 @@ dl.citation dd {
   border-bottom: solid 1px rgb(230,230,230);
   padding-top: .5rem;
   padding-bottom: .5rem;
+}
+
+/* -- Video box ----------------------------------------------------------- */
+
+.video-content {
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+  margin: 1.25rem 0 0 0;
+}
+
+.video-content iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* -- Other -------------------------------------------------------------- */
+
+hr.docutils {
+  border: 0;
+  height: 1px;
+  background: rgb(230,230,230);
+  margin: 1.25rem 0 0 0;
 }
 
 /* -- Hacks --------------------------------------------------------------- */

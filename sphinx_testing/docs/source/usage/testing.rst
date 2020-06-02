@@ -24,12 +24,7 @@ Heading5
 
 Testing
 
-
-.. _my-section-label:
-
 Heading6
 """"""""
 
-Testing my label reference
-
-.. _my-non-section-label:
+Testing

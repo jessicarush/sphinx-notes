@@ -217,10 +217,34 @@
 <p>External <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reference with embedded url</a></p>
 <p>External <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets">reference phrase</a></p>
 <p><a class="reference internal" href="#internal-reference">Internal reference</a></p>
-<p>Section titles, footnotes, and citations automatically generate hyperlink targets (the title text or footnote/citation label is used as the hyperlink name). These are called implicit links. For example, here is an implicit link to <a class="reference internal" href="#grid-tables">Grid tables</a>.</p>
+<p>Section titles, footnotes, and citations automatically generate hyperlink targets (the title text or footnote/citation label is used as the hyperlink name). These are called <em>implicit links</em>. For example, here is an implicit link to <a class="reference internal" href="#grid-tables">Grid tables</a>.</p>
 <p>Footnote reference <a class="footnote-reference brackets" href="#id4" id="id1">1</a>, and another <a class="footnote-reference brackets" href="#id5" id="id2">2</a></p>
 <p>Citation reference <a class="reference internal" href="#cit2002" id="id3"><span>[CIT2002]</span></a></p>
 <p>Full urls are automatically made into references, for example, <a class="reference external" href="https://docutils.sourceforge.io/rst.html">https://docutils.sourceforge.io/rst.html</a></p>
+<p>You can reference arbitrary locations in another document within your documentation using labels. If you place a label directly before a section title, you can link to it like so:</p>
+<p>To create a label before a section heading:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_my</span><span class="o">-</span><span class="n">section</span><span class="o">-</span><span class="n">label</span><span class="p">:</span>
+
+<span class="n">Section</span> <span class="n">Heading</span>
+<span class="o">---------------</span>
+</pre></div>
+</div>
+<p>To link to a label placed before a section heading:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For example see :ref:`my-section-label`.
+</pre></div>
+</div>
+<p>For example see <a class="reference internal" href="testing.html#my-section-label"><span class="std std-ref">Heading6</span></a>.</p>
+<p>Note that the heading text will be inserted as the link.</p>
+<p>Labels that <em>aren’t</em> placed before a section title can still be referenced to, but you must give the link an explicit title, using this syntax: <code class="docutils literal notranslate"><span class="pre">:ref:`Link</span> <span class="pre">title</span> <span class="pre">&lt;label-name&gt;`</span></code>.</p>
+<p>To create a label <em>not</em> placed before a section heading:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_my</span><span class="o">-</span><span class="n">non</span><span class="o">-</span><span class="n">section</span><span class="o">-</span><span class="n">label</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>To link to a label <em>not</em> placed before a section heading:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For example see: :ref:`my reference &lt;my-non-section-label&gt;`
+</pre></div>
+</div>
+<p>For example see: <a class="reference internal" href="testing.html#my-non-section-label"><span class="std std-ref">my reference</span></a>.</p>
 </div>
 <div class="section" id="substitutions">
 <h3>Substitutions<a class="headerlink" href="#substitutions" title="Permalink to this headline">#</a></h3>
@@ -306,7 +330,7 @@ Scott Volk</p>
 <dd class="field-even"><p>1.0</p>
 </dd>
 <dt class="field-odd">Last update</dt>
-<dd class="field-odd"><p>Apr 27, 2020</p>
+<dd class="field-odd"><p>Jun 01, 2020</p>
 </dd>
 </dl>
 </div>
@@ -815,7 +839,7 @@ a bunch of content
         
         <div class="last-updated">
           <span class="prefix">Last updated:</span>
-          <span class="time">Apr 27, 2020 7:35 PM</span>
+          <span class="time">Jun 01, 2020 5:43 PM</span>
         </div>
         
         
