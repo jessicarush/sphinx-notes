@@ -30,6 +30,12 @@ pdf, ePub, manual pages, plain text and more.
 pip install -U Sphinx
 ```
 
+To check the version installed:
+
+```bash
+sphinx-build --version
+```
+
 
 ## Directory structure
 
@@ -139,7 +145,7 @@ For more see [Sphinx's templating primer](https://sphinx.readthedocs.io/en/lates
 
 In Sphinx source files, you can use most features of standard reStructuredText. There are also several features added by Sphinx. See [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html) for an in-depth introduction to reStructuredText, including the markup added by Sphinx.
 
-See also my *sphinx-custom* has notes.
+See also my *sphinx-template* has notes.
 
 
 ## Domains
@@ -174,6 +180,7 @@ There are many other options you can add to your build command (you can customiz
 
 ## Using GitHub Pages
 
+Todo
 
 ## Watchdog
 
