@@ -1,6 +1,6 @@
-# Sphinx Theme: 13ds_theme_one
+# Sphinx 13DS Template
 
-
+This is a custom template for building documentation from reStructuredText with Sphinx. It uses a custom theme: *13ds_theme_one*. At this time, it has been configured for **html output only**. Support for `sphinx-build -b latex` will happen in the next iteration.
 
 ## Table of Contents
 
@@ -57,8 +57,8 @@ New 13ds_theme_one directory structure:
     │  └─ *.rst
     └─ Makefile
 ```
-
-## Customization
+## Configuration
+## Style Customization
 ### Images
 class | description
 ----- | -----------
@@ -73,7 +73,9 @@ noscale-right-wrap | your image will not scale larger than its original saved si
 
 ## Future Features
 
-- [] Dark mode
-- [] Custom Pygment syntax style
-- [] 13ds_theme_two
-     - layout on large screen includes right sidebar ("on this page")
+- [ ] Latex support
+- [ ] Dark mode
+- [ ] Custom Pygment syntax style
+- [ ] Dynamic highlight current section in sidebar toc while scrolling
+- [ ] 13ds_theme_two
+      - layout on large screen includes right sidebar ("on this page")
