@@ -63,9 +63,11 @@ rst_epilog = '''
 # .. |13ds| image:: logo.png
 # """
 
-# The default language to highlight source code in. The default is 'python3'.
-# The value should be a valid Pygments lexer name https://pygments.org
-# highlight_language = 'javascript'
+# The default language to highlight source code in. The default is 'default'
+# which is mostly a superset of 'python' but it fallbacks to 'none' without
+# warning if failed. If specfified, the value should be a valid Pygments
+# lexer name: https://pygments.org/docs/lexers/
+highlight_language = 'default'
 
 # The style name to use for Pygments highlighting of source code.
 # If not set, either the theme’s default style or 'sphinx' is selected.
@@ -148,16 +150,21 @@ html_favicon = '_static/favicon.ico'
 html_add_permalinks = '#'
 
 # Builtin sidebar templates that can be rendered are:
-# localtoc.html – a fine-grained table of contents (local pages only)
-# globaltoc.html – a coarse-grained toc for the whole doc set, collapsed
-# relations.html – links to the previous and next documents
-# sourcelink.html – a link to the source of the current document, if enabled
-# in html_show_sourcelink
-# searchbox.html – the “quick search” box
+#
+# localtoc.html   – a fine-grained table of contents (local pages only)
+# globaltoc.html  – a coarse-grained toc for the whole doc set, collapsed
+# relations.html  – links to the previous and next documents
+# sourcelink.html – a link to the source of the current document,
+#                   if enabled in html_show_sourcelink
+# searchbox.html  – the “quick search” box
+#
 # In addition to these you can create your own and save to 'templates'.
 # Style rules: sidebar content must be wrapped in one of the following:
 # <ul>, <h2 class="sidebar-heading"> or other with class="sidebar-content"
 # See sidebar_example.html
+#
+# html_sidebars can be defined for different pages like:
+# html_sidebars = {'index': ['globaltoc.html',], '**': ['localtoc.html',]}
 html_sidebars = {
    '**': [
      # 'localtoc.html',
@@ -200,4 +207,6 @@ html_show_sphinx = True
 html_last_updated_fmt = '%b %d, %Y %-I:%M %p'
 
 
-# -- Options for LaTeX output ------------------------------------------------
+# -- Options for LaTeX output ---------------------------------------------
+
+# TODO

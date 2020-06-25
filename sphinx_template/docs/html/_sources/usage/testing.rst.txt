@@ -24,7 +24,6 @@ Heading5
 
 Testing
 
-
 .. _my-section-label:
 
 Heading6

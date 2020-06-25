@@ -156,7 +156,7 @@
         <div class="copyright">
           © Copyright <span class="js-year"></span>,
           {% if copyright_link %}
-          <a href="{{ copyright_link }}">{{ copyright }}</a>.
+          <a href="{{ copyright_link }}" class="copyright_link">{{ copyright }}</a>.
           {% else %}
           {{ copyright }}.
           {% endif %}
@@ -170,7 +170,7 @@
         {% endif %}
         {% if show_sphinx %}
         <div class="created-with">
-          Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }} with <span class="theme">13ds_theme_one</span>.
+          Created using <a href="http://sphinx-doc.org/" class="copyright_link">Sphinx</a> {{ sphinx_version }} with <span class="theme">13ds_theme_one</span>.
         </div>
         {% endif %}
       </footer>

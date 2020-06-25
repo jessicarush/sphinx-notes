@@ -114,7 +114,7 @@ If you wish to create your own theme, refer to [HTML theming support](https://sp
 
 1. Create a new directory whose name is the theme name. This directory will contain the following:
  - a `theme.conf` file
- - html templates, if needed
+ - html templates
  - a `static` directory containing any css, js, images etc.
 
 2. In `conf.py` set `html_theme` to your themes directory name

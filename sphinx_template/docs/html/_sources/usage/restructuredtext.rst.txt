@@ -120,7 +120,7 @@ Unordered
 - also hyphens work
 - the list will have the class ``<ul class="simple">``
 
-  * nested lists must be indented
+  * nested lists must be indented 2 spaces
   * and have a space before and after
 
 - continuation of the main list
@@ -229,7 +229,9 @@ Syntax highlighting is provided by Pygments_. There are a number if different st
 Code Blocks
 -----------
 
-To use the `code block directive`_ to indicate javascript syntax, replace ``::`` with ``.. code-block:: javascript``. Code blocks can have a number options set, for example:
+To use the `code block directive`_ to indicate javascript syntax, replace ``::`` with ``.. code-block:: javascript``. The language can be `any lexer alias supported by Pygments`_. Most common ones you can pretty much guess but note there are useful ones like ``pycon`` and ``pytb`` for python console and python traceback code.
+
+Code blocks can have a number options set, for example:
 
 ::
 
@@ -237,7 +239,7 @@ To use the `code block directive`_ to indicate javascript syntax, replace ``::``
     :linenos:
     :lineno-start: 5
     :emphasize-lines: 2,5
-    :caption: example.js
+    :caption: app/static/example.js
     :name: example-js
 
 ``linenos`` will turn on line numbering
@@ -252,7 +254,7 @@ The options above will output like this:
   :linenos:
   :lineno-start: 5
   :emphasize-lines: 2,5
-  :caption: example.js
+  :caption: app/static/example.js
   :name: example-js
 
   function logAmount(amt) {
@@ -464,6 +466,8 @@ Explicit markup starts with two periods and whitespace.
 
 .. _Pygments: https://pygments.org/demo/#try
 
+.. _any lexer alias supported by Pygments: https://pygments.org/docs/lexers/
+
 .. _`instructions on creating your own style`: https://pygments.org/docs/styles/
 
 .. _`Docutils full list of directives`: https://docutils.sourceforge.io/docs/ref/rst/directives.html
@@ -493,6 +497,9 @@ Directives are a general-purpose extension mechanism of reST, a way of adding su
 - `Epigraphs`_
 - `Meta`_
 - `Raw HTML`_
+- `Contents`_
+- `Glossary`_
+- `Include`_
 
 Note that with many directives, there is a main option that is placed on the same line as the name of the directive. For examples, with code blocks—the language, with images—the file path, with links—the URI. For example:
 
@@ -669,6 +676,62 @@ Outputs:
 .. raw:: html
 
   <p><input placeholder="testing raw"><p>
+
+
+Contents
+--------
+
+The contents directive is used to generate a table of contents for the current topic (page).
+
+It looks like this:
+
+::
+
+  .. contents::
+
+It can take one optional argument, a title:
+
+::
+
+  .. contents:: On This Page
+
+Note that if a title is not provided, the default "Contents" will be used.
+
+There are also a number of possible options:
+
+::
+
+  .. contents:: On This Page
+     :depth: 2
+     :local:
+     :backlinks: none
+     :class: page-toc
+
+- ``:depth:`` – the number of section levels that are included
+- ``:local:`` – will only include subsections of the section in which the directive is placed
+- ``:backlinks:`` – value can be set to "entry", "top" or "none". By default, the directive generates links from section headers back to the table of contents.
+- ``:class:`` – adds a class attribute to the outer container.
+
+.. contents:: On This Page
+   :backlinks: none
+   :depth: 2
+
+Glossary
+--------
+
+todo
+
+
+Include
+-------
+
+todo
+
+
+Literal Include
+---------------
+
+todo
 
 
 Other

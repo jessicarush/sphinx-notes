@@ -1,5 +1,35 @@
 @import "fontawesome-all.css";
 
+/**
+ * theme.css
+ *
+ * This file contains all css for the 13ds_theme_one Sphinx theme.
+ * Note styles not found here are inherited from the Sphinx base theme.
+ *
+ * Sections
+ * - Varibales
+ * - Typography
+ * - Links
+ * - Buttons
+ * - Lists
+ * - Tables
+ * - Images
+ * - Layout
+ * - Index toc
+ * - Sidebar toc
+ * - Searchboxes
+ * - Code blocks
+ * - Autodoc
+ * - Admonitions
+ * - Footnotes & Citations
+ * - Video box
+ * - Hacks
+ *
+ **/
+
+
+/* -- Variables ----------------------------------------------------------- */
+
 :root {
   --emphasis-color: rgb(55,200,165);
   --emphasis-color-dark: rgb(46,171,141);
@@ -16,12 +46,14 @@ html {
 }
 
 @media (min-width: 1600px) {
-  html { font-size: 16.5px; }
+  html {
+    font-size: 16.5px;
+  }
 }
 
 body {
   color: rgb(40,60,70);
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -128,108 +160,7 @@ blockquote {
   margin: 1.25rem 0 0 0;
 }
 
-/* -- Lists --------------------------------------------------------------- */
-
-ul,
-ol {
-  margin: 1.25rem 0 0 0;
-}
-
-ul.simple p,
-ol.simple p {
-  margin: 0;
-}
-
-dl {
-  margin: 0;
-}
-
-dt {
-  color: #000;
-  font-style: italic;
-  font-weight: 500;
-  line-height: 1.7;
-  margin: 1.25rem 0 0 0;
-}
-
-dd {
-  margin-left: 1.5rem;
-  line-height: 1.7;
-}
-dd p:first-of-type {
-  margin: 0;
-}
-
-.field-list {
-  grid-gap: 0;
-  border: solid 1px rgb(230,230,230);
-  border-radius: 4px;
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  margin: 2rem 0 0 0;
-}
-
-.field-even {
-  background: rgb(245,246,247);
-}
-
-.field-list dt {
-  border-bottom: solid 1px rgb(230,230,230);
-  font-style: normal;
-  padding: .7rem 0 0 1rem;
-  margin: 0;
-}
-
-.field-list dd {
-  border-bottom: solid 1px rgb(230,230,230);
-  margin-left: 0;
-  padding: .7rem 1rem .7rem 2rem;
-}
-
-.field-list dt:last-of-type,
-.field-list dd:last-of-type {
-  border-bottom: none;
-}
-
-.option-list {
-  grid-gap: 0;
-  border: solid 1px rgb(230,230,230);
-  border-radius: 4px;
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  margin: 2rem 0 0 0;
-}
-
-.option-list dt:nth-of-type(even),
-.option-list dd:nth-of-type(even) {
-  background: rgb(245,246,247);
-}
-
-.option-list dt {
-  border-bottom: solid 1px rgb(230,230,230);
-  font-style: normal;
-  font-weight: 400;
-  padding: .7rem 0 0 1rem;
-  margin: 0;
-}
-
-.option-list dd {
-  border-bottom: solid 1px rgb(230,230,230);
-  margin-left: 0;
-  padding: .7rem 1rem .7rem 2rem;
-}
-
-.option-list dt:last-of-type,
-.option-list dd:last-of-type {
-  border-bottom: none;
-}
-
-ul.search {
-  line-height: 1.7;
-}
-
-
-/* -- Links & Buttons ----------------------------------------------------- */
+/* -- Links --------------------------------------------------------------- */
 
 a {
   color: var(--emphasis-color);
@@ -276,22 +207,6 @@ a:hover {
 
 .sidebar-navbar-link:hover {
   text-decoration: none;
-}
-
-.sidebar-menu-button {
-  cursor: pointer;
-  height: 1.1rem;
-  left: 1.5rem;
-  padding: .3rem;
-  position: absolute;
-  top: .9rem;
-  visibility: hidden;
-  width: 1.1rem;
-}
-
-.sidebar-menu-button  > * {
-  /* In event delegation, prevents child elements from being event.target */
-  pointer-events: none;
 }
 
 .headerlink {
@@ -342,8 +257,172 @@ h6:hover > a.headerlink,
   text-decoration: none;
 }
 
+.copyright_link {
+  color: rgb(0,0,0);
+}
 
-/* -- Images ------------------------------------------------------------- */
+/* -- Buttons ------------------------------------------------------------- */
+
+.sidebar-menu-button {
+  cursor: pointer;
+  height: 1.1rem;
+  left: 1.5rem;
+  padding: .3rem;
+  position: absolute;
+  top: .9rem;
+  visibility: hidden;
+  width: 1.1rem;
+}
+
+.sidebar-menu-button > * {
+  /* In event delegation, prevents child elements from being event.target */
+  pointer-events: none;
+}
+
+/* -- Lists --------------------------------------------------------------- */
+
+ul,
+ol {
+  margin: 1.25rem 0 0 0;
+}
+
+ul.simple ul,
+ul.simple ol,
+ol.simple ul,
+ol.simple ol {
+  margin: 0;
+}
+
+ul.simple p,
+ol.simple p {
+  margin: 0;
+}
+
+dl {
+  margin: 0;
+}
+
+dt {
+  color: #000;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.7;
+  margin: 1.25rem 0 0 0;
+}
+
+dd {
+  margin-left: 1.5rem;
+  line-height: 1.7;
+}
+
+dd p:first-of-type {
+  margin: 0;
+}
+
+.field-list {
+  grid-gap: 0;
+  border: solid 1px rgb(230,230,230);
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin: 2rem 0 0 0;
+}
+
+.field-even {
+  background: rgb(245,246,247);
+}
+
+.field-list dt {
+  border-bottom: solid 1px rgb(230,230,230);
+  font-style: normal;
+  padding: .7rem 0 0 1rem;
+  margin: 0;
+}
+
+.field-list dd {
+  border-bottom: solid 1px rgb(230,230,230);
+  margin-left: 0;
+  padding: .7rem 1rem .7rem 2rem;
+}
+
+.field-list dt:last-of-type,
+.field-list dd:last-of-type {
+  border-bottom: none;
+}
+
+.option-list {
+  grid-gap: 0;
+  border: solid 1px rgb(230,230,230);
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin: 2rem 0 0 0;
+}
+
+.option-list dt {
+  border-bottom: solid 1px rgb(230,230,230);
+  font-style: normal;
+  font-weight: 400;
+  padding: .7rem 0 0 1rem;
+  margin: 0;
+}
+
+.option-list dd {
+  border-bottom: solid 1px rgb(230,230,230);
+  margin-left: 0;
+  padding: .7rem 1rem .7rem 2rem;
+}
+
+.option-list dt:nth-of-type(even),
+.option-list dd:nth-of-type(even) {
+  background: rgb(245,246,247);
+}
+
+.option-list dt:last-of-type,
+.option-list dd:last-of-type {
+  border-bottom: none;
+}
+
+ul.search {
+  line-height: 1.7;
+}
+
+/* -- Tables -------------------------------------------------------------- */
+
+table.docutils {
+  border: solid 1px rgb(0,0,0);
+  border-spacing: 0;
+  overflow-x: auto;
+  text-align: left;
+  width: 100%;
+  margin: 2rem 0 0 0;
+}
+
+table.docutils th,
+table.docutils td {
+  padding: 0 1rem .7rem 1rem;
+  vertical-align: top;
+  border: solid .5px rgb(230,230,230);
+}
+
+table.docutils tr.row-even {
+  background: rgb(245,246,247);
+}
+
+table.docutils p:first-child {
+  margin: .7rem 0 0 0;
+}
+
+table.docutils ul:first-child,
+table.docutils ol:first-child {
+  margin: .7rem 0 0 0;
+}
+
+table.docutils li p:first-child {
+  margin: 0;
+}
+
+/* -- Images -------------------------------------------------------------- */
 
 .scale-to-fit {
   /* For images that should scale up to content width on large screens */
@@ -366,6 +445,13 @@ h6:hover > a.headerlink,
   margin: 1.25rem 0 0 0;
 }
 
+.noscale-right {
+  /* For images that should NOT scale up on large screens */
+  max-width: 100%;
+  display: block;
+  margin: 1.25rem 0 0 auto;
+}
+
 .noscale-left-wrap {
   /* For images that allow text to flow around them */
   max-width: 100%;
@@ -384,8 +470,7 @@ h6:hover > a.headerlink,
   margin: 2rem 0 0 0;
 }
 
-
-/* -- Layout ---------------------------------------------------------- */
+/* -- Layout -------------------------------------------------------------- */
 
 .main-header {
   position: -webkit-sticky;
@@ -420,7 +505,8 @@ h6:hover > a.headerlink,
   position: fixed;
   top: 3.6rem;
   transition: transform .3s ease, width .2s;
-  width: 24rem;
+  /* should match margin-left on .main-content--sidebar,.main-footer--sidebar */
+  width: 25rem;
   z-index: 10;
 }
 
@@ -467,8 +553,9 @@ h6:hover > a.headerlink,
 .main-content--sidebar,
 .main-footer--sidebar {
   transition: margin-left .2s, padding .2s;
-  margin-left: 24rem;
-  padding: 0 2.5rem 2.5rem 2.5rem;
+  /* should match width on .main-sidebar */
+  margin-left: 25rem;
+  padding: 0 3rem 2.5rem 3rem;
 }
 
 .main-content--nosidebar,
@@ -505,8 +592,8 @@ h6:hover > a.headerlink,
 .copyright,
 .created-with,
 .last-updated {
-  font-size: .9rem;
-  line-height: 1.6rem;
+  font-size: .85rem;
+  line-height: 1.5rem;
   text-align: left;
 }
 
@@ -519,7 +606,7 @@ h6:hover > a.headerlink,
   .main-wrapper,
   .footer-wrapper {
     /* desired width + left-sidebar + main-content padding */
-    max-width: calc(1080px + 24rem + 5rem);
+    max-width: calc(1080px + 25rem + 5rem);
     margin: auto;
   }
 
@@ -532,7 +619,7 @@ h6:hover > a.headerlink,
   } */
 }
 
-@media (max-width: 1260px) {
+@media (max-width: 1366px) {
   .main-sidebar {
     width: 20rem;
   }
@@ -540,6 +627,17 @@ h6:hover > a.headerlink,
   .main-content--sidebar,
   .main-footer--sidebar {
     margin-left: 20rem;
+  }
+}
+
+@media (max-width: 1159px) {
+  .main-sidebar {
+    width: 18rem;
+  }
+
+  .main-content--sidebar,
+  .main-footer--sidebar {
+    margin-left: 18rem;
   }
 }
 
@@ -588,6 +686,30 @@ h6:hover > a.headerlink,
   }
 }
 
+/* -- Index toc ----------------------------------------------------------- */
+
+.toctree-wrapper ul {
+  line-height: 1.8rem;
+  margin: 0;
+}
+
+.toctree-wrapper > ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1.25rem 0 0 0;
+}
+
+.toctree-wrapper .toctree-l1 ul {
+  list-style-type: disc;
+}
+
+.toctree-wrapper .toctree-l2 ul {
+  list-style-type: circle;
+}
+
+.toctree-wrapper .toctree-l3 ul {
+  list-style-type: square;
+}
 
 /* -- Sidebar toc --------------------------------------------------------- */
 
@@ -634,6 +756,13 @@ h6:hover > a.headerlink,
   padding-left: calc(1.8rem - 8px);
 }
 
+hr.docutils {
+  border: 0;
+  height: 1px;
+  background: rgb(230,230,230);
+  margin: 1.25rem 0 0 0;
+}
+
 /* -- Searchboxes --------------------------------------------------------- */
 
 form.search {
@@ -641,7 +770,7 @@ form.search {
   padding-top: .5rem;
 }
 
-/* -- Sidebar searchbox --------------------------------------------------- */
+/* -- Sidebar searchbox -- */
 
 .sidebar-search {
   box-sizing: border-box;
@@ -678,8 +807,7 @@ form.search {
   color: var(--emphasis-color-dark);
 }
 
-
-/* -- Search page searchbox ----------------------------------------------- */
+/* -- Search page searchbox -- */
 
 .main-search {
   font-size: 1rem;
@@ -716,51 +844,25 @@ form.search {
   color: var(--emphasis-color-dark);
 }
 
-
-/* -- Index toc ----------------------------------------------------------- */
-
-.toctree-wrapper ul {
-  line-height: 1.8rem;
-  margin: 0;
-}
-
-.toctree-wrapper > ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 1.25rem 0 0 0;
-}
-
-.toctree-wrapper .toctree-l1 ul {
-  list-style-type: disc;
-}
-
-.toctree-wrapper .toctree-l2 ul {
-  list-style-type: circle;
-}
-
-.toctree-wrapper .toctree-l3 ul {
-  list-style-type: square;
-}
-
-
 /* -- Code blocks --------------------------------------------------------- */
 
 .docutils.literal {
-  background: rgb(243,243,244);
+  background: rgba(27,31,51,.05);
   border-radius: 4px;
   color: rgb(70,100,130);
-  padding: .2rem .5rem;
+  padding: .2rem .4rem;
 }
 
 .highlight,
 .highlighttable {
   /* use with any light pygments theme like autumn */
-  /* background: rgb(243,243,244); */
+  /* background: rgba(27,31,51,.05); */
   /* use with any dark pygments theme like paraiso-dark */
   background: rgba(40,44,52);
   border-radius: 4px;
   line-height: 1.3rem;
   margin-top: 1.25rem;
+  font-size: .95rem;
 }
 
 .admonition .highlight,
@@ -769,7 +871,7 @@ form.search {
 }
 
 .highlight {
-  padding: .2rem 1.5rem;
+  padding: .4rem 1.5rem;
   overflow-x: auto;
 }
 
@@ -789,7 +891,7 @@ form.search {
 .code-block-caption {
   color: #000;
   font-size: .85rem;
-  font-weight: 600;
+  font-style: italic;
   margin-top: 1.25rem;
   margin-bottom: -.75rem;
 }
@@ -812,6 +914,8 @@ div[class^="highlight-"] {
   line-height: 1em;
 }
 
+/* -- Autodoc ------------------------------------------------------------- */
+
 /* -- Admonitions --------------------------------------------------------- */
 
 .admonition {
@@ -826,7 +930,7 @@ div[class^="highlight-"] {
   font-weight: 400;
   line-height: 1.6rem;
   margin: 2.25rem 0 0 0;
-  padding: 1.25rem 1.75rem 1.85rem 1.75rem;
+  padding: 1.75rem 1.75rem 1.85rem 1.75rem;
 }
 
 .admonition + p {
@@ -888,6 +992,7 @@ div[class^="highlight-"] {
 .admonition-title {
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1rem;
   margin: 0;
 }
 
@@ -898,6 +1003,7 @@ div[class^="highlight-"] {
   font-size: .85rem;
   font-style: normal;
   font-variant: normal;
+  line-height: 1rem;
   padding-right: .5rem;
   position: relative;
   text-rendering: auto;
@@ -937,48 +1043,7 @@ div[class^="highlight-"] {
   font-weight: 900;
 }
 
-
-/* -- Tables -------------------------------------------------------------- */
-
-table.docutils {
-  border: solid 1px rgb(0,0,0);
-  border-spacing: 0;
-  overflow-x: auto;
-  text-align: left;
-  width: 100%;
-  margin: 2rem 0 0 0;
-}
-
-table.docutils th,
-table.docutils td {
-  padding: 0 1rem .7rem 1rem;
-  vertical-align: top;
-}
-
-table.docutils th,
-table.docutils td {
-  border: solid .5px rgb(230,230,230);
-}
-
-table.docutils tr.row-even {
-  background: rgb(245,246,247);
-}
-
-table.docutils p:first-child {
-  margin: .7rem 0 0 0;
-}
-
-table.docutils ul:first-child,
-table.docutils ol:first-child {
-  margin: .7rem 0 0 0;
-}
-
-table.docutils li p:first-child {
-  margin: 0;
-}
-
-
-/* -- Footnotes & Citation  ----------------------------------------------- */
+/* -- Footnotes & Citations ----------------------------------------------- */
 
 dl.footnote,
 dl.citation {
@@ -1033,23 +1098,14 @@ dl.citation dd {
   left: 0;
 }
 
-/* -- Other -------------------------------------------------------------- */
-
-hr.docutils {
-  border: 0;
-  height: 1px;
-  background: rgb(230,230,230);
-  margin: 1.25rem 0 0 0;
-}
-
 /* -- Hacks --------------------------------------------------------------- */
 
 :target::before {
   /* To shift fragment links so they're visible below fixed header */
   content: "";
   display: block;
-  height: 2.5rem; /* fixed header height */
-  margin-top: -2.5rem; /* negative fixed header height */
+  height: 3.5rem; /* fixed header height */
+  margin-top: -3.5rem; /* negative fixed header height */
   visibility: hidden;
   pointer-events: none;
 }

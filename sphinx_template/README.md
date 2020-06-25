@@ -59,7 +59,16 @@ New 13ds_theme_one directory structure:
 ```
 
 ## Customization
+### Images
+class | description
+----- | -----------
+scale-to-fit | your image, regardless of size, will scale to the width of the container.
+noscale-center | your image will not scale larger than its original saved size. If the image is smaller in width than the container, it will be centered.
+noscale-left | your image will not scale larger than its original saved size. If the image is smaller in width than the container, it will be aligned left.
+noscale-left-wrap | your image will not scale larger than its original saved size. If the image is smaller in width than the container, it will be aligned left and allow text to wrap around its right side.
+noscale-right-wrap | your image will not scale larger than its original saved size. If the image is smaller in width than the container, it will be aligned right and allow text to wrap around its left side.
 
+### Videos
 ### Dark syntax
 
 ## Future Features
@@ -67,3 +76,4 @@ New 13ds_theme_one directory structure:
 - [] Dark mode
 - [] Custom Pygment syntax style
 - [] 13ds_theme_two
+     - layout on large screen includes right sidebar ("on this page")

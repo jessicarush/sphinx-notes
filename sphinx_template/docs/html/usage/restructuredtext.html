@@ -139,6 +139,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#epigraphs">Epigraphs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#meta">Meta</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#raw-html">Raw HTML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contents">Contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#glossary">Glossary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#include">Include</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#literal-include">Literal Include</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#other">Other</a></li>
@@ -286,7 +290,7 @@
 <li><p>also hyphens work</p></li>
 <li><p>the list will have the class <code class="docutils literal notranslate"><span class="pre">&lt;ul</span> <span class="pre">class=&quot;simple&quot;&gt;</span></code></p>
 <ul>
-<li><p>nested lists must be indented</p></li>
+<li><p>nested lists must be indented 2 spaces</p></li>
 <li><p>and have a space before and after</p></li>
 </ul>
 </li>
@@ -330,7 +334,7 @@ Scott Volk</p>
 <dd class="field-even"><p>1.0</p>
 </dd>
 <dt class="field-odd">Last update</dt>
-<dd class="field-odd"><p>Jun 01, 2020</p>
+<dd class="field-odd"><p>Jun 25, 2020</p>
 </dd>
 </dl>
 </div>
@@ -390,12 +394,13 @@ Scott Volk</p>
 </div>
 <div class="section" id="code-blocks">
 <h3>Code Blocks<a class="headerlink" href="#code-blocks" title="Permalink to this headline">#</a></h3>
-<p>To use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block">code block directive</a> to indicate javascript syntax, replace <code class="docutils literal notranslate"><span class="pre">::</span></code> with <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span> <span class="pre">javascript</span></code>. Code blocks can have a number options set, for example:</p>
+<p>To use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block">code block directive</a> to indicate javascript syntax, replace <code class="docutils literal notranslate"><span class="pre">::</span></code> with <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span> <span class="pre">javascript</span></code>. The language can be <a class="reference external" href="https://pygments.org/docs/lexers/">any lexer alias supported by Pygments</a>. Most common ones you can pretty much guess but note there are useful ones like <code class="docutils literal notranslate"><span class="pre">pycon</span></code> and <code class="docutils literal notranslate"><span class="pre">pytb</span></code> for python console and python traceback code.</p>
+<p>Code blocks can have a number options set, for example:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> javascript
   <span class="nc">:linenos:</span>
   <span class="nc">:lineno-start:</span> <span class="nf">5</span>
   <span class="nc">:emphasize-lines:</span> <span class="nf">2,5</span>
-  <span class="nc">:caption:</span> <span class="nf">example.js</span>
+  <span class="nc">:caption:</span> <span class="nf">app/static/example.js</span>
   <span class="nc">:name:</span> <span class="nf">example-js</span>
 </pre></div>
 </div>
@@ -406,7 +411,7 @@ Scott Volk</p>
 <code class="docutils literal notranslate"><span class="pre">name</span></code>  creates a name label for linking</p>
 <p>The options above will output like this:</p>
 <div class="literal-block-wrapper docutils container" id="example-js">
-<div class="code-block-caption"><span class="caption-text">example.js</span><a class="headerlink" href="#example-js" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-text">app/static/example.js</span><a class="headerlink" href="#example-js" title="Permalink to this code">#</a></div>
 <div class="highlight-javascript notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 5
  6
  7
@@ -667,6 +672,9 @@ span rows.</p></td>
 <li><p><a class="reference internal" href="#epigraphs">Epigraphs</a></p></li>
 <li><p><a class="reference internal" href="#meta">Meta</a></p></li>
 <li><p><a class="reference internal" href="#raw-html">Raw HTML</a></p></li>
+<li><p><a class="reference internal" href="#contents">Contents</a></p></li>
+<li><p><a class="reference internal" href="#glossary">Glossary</a></p></li>
+<li><p><a class="reference internal" href="#include">Include</a></p></li>
 </ul>
 <p>Note that with many directives, there is a main option that is placed on the same line as the name of the directive. For examples, with code blocks—the language, with images—the file path, with links—the URI. For example:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> javascript
@@ -795,6 +803,62 @@ a bunch of content
 </div>
 <p>Outputs:</p>
 <p><input placeholder="testing raw"><p></div>
+<div class="section" id="contents">
+<h3>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h3>
+<p>The contents directive is used to generate a table of contents for the current topic (page).</p>
+<p>It looks like this:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span>
+</pre></div>
+</div>
+<p>It can take one optional argument, a title:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span> On This Page
+</pre></div>
+</div>
+<p>Note that if a title is not provided, the default “Contents” will be used.</p>
+<p>There are also a number of possible options:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span> On This Page
+   <span class="nc">:depth:</span> <span class="nf">2</span>
+   <span class="nc">:local:</span>
+   <span class="nc">:backlinks:</span> <span class="nf">none</span>
+   <span class="nc">:class:</span> <span class="nf">page-toc</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">:depth:</span></code> – the number of section levels that are included</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:local:</span></code> – will only include subsections of the section in which the directive is placed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:backlinks:</span></code> – value can be set to “entry”, “top” or “none”. By default, the directive generates links from section headers back to the table of contents.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:class:</span></code> – adds a class attribute to the outer container.</p></li>
+</ul>
+<div class="contents topic" id="on-this-page">
+<p class="topic-title">On This Page</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#restructuredtext" id="id7">reStructuredText</a></p>
+<ul>
+<li><p><a class="reference internal" href="#inline-markup" id="id8">Inline markup</a></p></li>
+<li><p><a class="reference internal" href="#section-structure" id="id9">Section Structure</a></p></li>
+<li><p><a class="reference internal" href="#lists" id="id10">Lists</a></p></li>
+<li><p><a class="reference internal" href="#blocks" id="id11">Blocks</a></p></li>
+<li><p><a class="reference internal" href="#tables" id="id12">Tables</a></p></li>
+<li><p><a class="reference internal" href="#explicit-markup" id="id13">Explicit markup</a></p></li>
+<li><p><a class="reference internal" href="#directives" id="id14">Directives</a></p></li>
+<li><p><a class="reference internal" href="#other" id="id15">Other</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="glossary">
+<h3>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h3>
+<p>todo</p>
+</div>
+<div class="section" id="include">
+<h3>Include<a class="headerlink" href="#include" title="Permalink to this headline">#</a></h3>
+<p>todo</p>
+</div>
+<div class="section" id="literal-include">
+<h3>Literal Include<a class="headerlink" href="#literal-include" title="Permalink to this headline">#</a></h3>
+<p>todo</p>
+</div>
 </div>
 <div class="section" id="other">
 <h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">#</a></h2>
@@ -832,19 +896,19 @@ a bunch of content
         <div class="copyright">
           © Copyright <span class="js-year"></span>,
           
-          <a href="https://github.com/aleph2c">13 Down Software</a>.
+          <a href="https://github.com/aleph2c" class="copyright_link">13 Down Software</a>.
           
         </div>
         
         
         <div class="last-updated">
           <span class="prefix">Last updated:</span>
-          <span class="time">Jun 01, 2020 5:43 PM</span>
+          <span class="time">Jun 25, 2020 11:42 AM</span>
         </div>
         
         
         <div class="created-with">
-          Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.0 with <span class="theme">13ds_theme_one</span>.
+          Created using <a href="http://sphinx-doc.org/" class="copyright_link">Sphinx</a> 2.4.0 with <span class="theme">13ds_theme_one</span>.
         </div>
         
       </footer>
