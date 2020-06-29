@@ -82,7 +82,7 @@ language = 'en'
 
 # The theme to use for HTML and HTML Help pages. See the documentation for
 # a list of builtin themes.
-html_theme = '13ds_theme_one'
+html_theme = 'basic_copy'
 
 # A dictionary of options that influence the look and feel of the selected
 # theme. These are theme-specific. See the theme's theme.conf
