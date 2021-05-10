@@ -71,6 +71,9 @@ I don't really get what their distinction is between parts, chapters and section
   Subsection: <h3>
   ----------------
 
+  Sub-subsection: <h4>
+  ^^^^^^^^^^^^^^^^^^^^
+
 
 Lists
 =====
