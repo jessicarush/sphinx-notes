@@ -47,7 +47,7 @@ Substitution reference: text that is wrapped in pipes like: ``|13ds|`` can be sw
 Section Structure
 =================
 
-It would appear that you can use any nonalphanumeric character to indicate a heading. All you have to do is underline (or over and underline) to at least the same length as the text. If the second heading uses a different character, it will be treated as a subheading and so on.
+It would appear that you can use any nonalphanumeric character to indicate a heading (``= - ` : ' " ~ ^ _ * + # < >``). All you have to do is underline (or over and underline) to at least the same length as the text. If the second heading uses a different character, it will be treated as a subheading and so on.
 
 The python convention is this:
 - ``#`` with overline, for parts
