@@ -102,11 +102,10 @@ When choosing a syntax highlighting style (`pygments_style`), launch the python 
 ```bash
 >>> from pygments.styles import STYLE_MAP
 >>> STYLE_MAP.keys()
-dict_keys(['default', 'emacs', 'friendly', 'colorful', 'autumn', 'murphy', 'manni', 'monokai', 'perldoc', 'pastie', 'borland', 'trac', 'native', 'fruity', 'bw', 'vim', 'vs', 'tango', 'rrt', 'xcode', 'igor', 'paraiso-light', 'paraiso-dark', 'lovelace', 'algol', 'algol_nu', 'arduino', 'rainbow_dash', 'abap'])
+dict_keys(['default', 'emacs', 'friendly', 'friendly_grayscale', 'colorful', 'autumn', 'murphy', 'manni', 'material', 'monokai', 'perldoc', 'pastie', 'borland', 'trac', 'native', 'fruity', 'bw', 'vim', 'vs', 'tango', 'rrt', 'xcode', 'igor', 'paraiso-light', 'paraiso-dark', 'lovelace', 'algol', 'algol_nu', 'arduino', 'rainbow_dash', 'abap', 'solarized-dark', 'solarized-light', 'sas', 'stata', 'stata-light', 'stata-dark', 'inkpot', 'zenburn', 'gruvbox-dark', 'gruvbox-light', 'dracula', 'one-dark', 'lilypond'])
 ```
 
-
-See the [Configuration documention](https://sphinx.readthedocs.io/en/latest/usage/configuration.html#confval-pygments_style).
+See the [Configuration documentation](https://www.sphinx-doc.org/en/master/usage/configuration.html).
 
 
 ## Themes
@@ -117,12 +116,13 @@ Using a [theme provided with Sphinx](https://www.sphinx-doc.org/en/master/usage/
 
 There are many third-party themes available at [sphinx-themes.org](https://sphinx-themes.org/)
 
-If you wish to create your own theme, refer to [HTML theming support](https://www.sphinx-doc.org/en/master/development/theming.html). That being said, here are my notes:
+If you wish to create your own theme, refer to [HTML theming support](https://www.sphinx-doc.org/en/master/development/theming.html) and [Templating](https://www.sphinx-doc.org/en/master/templating.html). That being said, here are my notes:
 
 1. Create a new directory whose name is the theme name. This directory will contain the following:
- - a `theme.conf` file
- - html templates
- - a `static` directory containing any css, js, images etc.
+
+  - a `theme.conf` file
+  - html template files (e.g. layout.html, search.html)
+  - a `static` directory containing any css, js, images etc.
 
 2. In `conf.py` set `html_theme` to your themes directory name
 
@@ -144,6 +144,8 @@ variable = value
 As for the templates:
 
 > Sphinx’s basic theme provides base templates with a couple of blocks it will fill with data. These are located in the themes/basic subdirectory of the Sphinx installation directory, and used by all builtin Sphinx themes. Templates with the same name in the templates_path override templates supplied by the selected theme.
+
+For example, go to `venv/lib/python3.10/site-packages/sphinx/themes/basic`.
 
 For more see [Sphinx's templating primer](https://www.sphinx-doc.org/en/master/templating.html).
 
