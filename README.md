@@ -30,12 +30,19 @@ pdf, ePub, manual pages, plain text and more.
 pip install -U Sphinx
 ```
 
+The `-U` flag means *Upgrade all specified packages to the newest available version*.
+
 To check the version installed:
 
 ```bash
 sphinx-build --version
 ```
 
+If you need to install a specific version:
+
+```bash
+pip install sphinx==3.3.1
+```
 
 ## Directory structure
 
@@ -106,11 +113,11 @@ See the [Configuration documention](https://sphinx.readthedocs.io/en/latest/usag
 
 Sphinx supports changing the appearance of its HTML output via themes. A theme is a collection of HTML templates, stylesheet(s) and other static files. Additionally, it has a configuration file which specifies from which theme to inherit, which highlighting style to use, and what options exist for customizing the theme’s look and feel.
 
-Using a [theme provided with Sphinx](https://sphinx.readthedocs.io/en/latest/usage/theming.html#builtin-themes) is easy. These do not need to be installed, you only need to set the `html_theme` config value in `conf.py`.
+Using a [theme provided with Sphinx](https://www.sphinx-doc.org/en/master/usage/theming.html#builtin-themes) is easy. These do not need to be installed, you only need to set the `html_theme` config value in `conf.py`.
 
 There are many third-party themes available at [sphinx-themes.org](https://sphinx-themes.org/)
 
-If you wish to create your own theme, refer to [HTML theming support](https://sphinx.readthedocs.io/en/latest/theming.html). That being said, here are my notes:
+If you wish to create your own theme, refer to [HTML theming support](https://www.sphinx-doc.org/en/master/development/theming.html). That being said, here are my notes:
 
 1. Create a new directory whose name is the theme name. This directory will contain the following:
  - a `theme.conf` file
@@ -138,7 +145,7 @@ As for the templates:
 
 > Sphinx’s basic theme provides base templates with a couple of blocks it will fill with data. These are located in the themes/basic subdirectory of the Sphinx installation directory, and used by all builtin Sphinx themes. Templates with the same name in the templates_path override templates supplied by the selected theme.
 
-For more see [Sphinx's templating primer](https://sphinx.readthedocs.io/en/latest/templating.html).
+For more see [Sphinx's templating primer](https://www.sphinx-doc.org/en/master/templating.html).
 
 
 ## reStructuredText

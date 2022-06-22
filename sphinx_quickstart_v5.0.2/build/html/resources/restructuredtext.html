@@ -1,0 +1,1215 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta content="The reStructuredText plaintext markup language" name="description" />
+<meta content="plaintext, markup language" name="keywords" />
+
+    <title>reStructuredText Cheatsheet &#8212; sphinx_quickstart_v5.0.2 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Test Codeblocks" href="test_codeblocks.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="test_codeblocks.html" title="Test Codeblocks"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">sphinx_quickstart_v5.0.2 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">reStructuredText Cheatsheet</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="restructuredtext-cheatsheet">
+<h1>reStructuredText Cheatsheet<a class="headerlink" href="#restructuredtext-cheatsheet" title="Permalink to this heading">¶</a></h1>
+<div class="line-block">
+<div class="line">See also: <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#">Sphinx’s reStructuredText Guide</a></div>
+<div class="line">See also: <a class="reference external" href="https://docutils.sourceforge.io/rst.html">Docutils authoritative reStructuredText User Documentation</a></div>
+</div>
+<section id="inline-markup">
+<h2>Inline markup<a class="headerlink" href="#inline-markup" title="Permalink to this heading">¶</a></h2>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="ge">*one asterisk*</span> for emphasis
+<span class="gs">**two asterisks**</span> for strong
+<span class="s">``two backticks``</span> for code
+</pre></div>
+</div>
+<p>output:</p>
+<p><em>one asterisk</em> for emphasis</p>
+<p><strong>two asterisks</strong> for strong</p>
+<p><code class="docutils literal notranslate"><span class="pre">two</span> <span class="pre">backticks</span></code> for code</p>
+<p>Use backslashes to escape characters, for example, the spaces around an emphasized word.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>doc/\ <span class="ge">*your_filename*</span>\ .rst
+</pre></div>
+</div>
+<p>doc/<em>your_filename</em>.rst</p>
+<section id="linking">
+<h3>Linking<a class="headerlink" href="#linking" title="Permalink to this heading">¶</a></h3>
+<p>Syntax to create a link:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>External reference_
+External <span class="s">`reference phrase`_</span>
+External <span class="s">`reference with embedded url </span><span class="si">&lt;https://docutils.sourceforge.io/rst.html&gt;</span><span class="s">`_</span>
+<span class="s">`Internal reference`_</span>
+</pre></div>
+</div>
+<p>Syntax to define the link target:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_reference:</span> https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets
+
+<span class="p">..</span> <span class="nt">_`reference phrase`:</span> https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets
+
+<span class="p">..</span> <span class="nt">_`Internal reference`:</span>
+
+Internal reference test content...
+</pre></div>
+</div>
+<p>output:</p>
+<p>External <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets">reference</a></p>
+<p>External <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html#hyperlink-targets">reference phrase</a></p>
+<p>External <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reference with embedded url</a></p>
+<p><a class="reference internal" href="#internal-reference">Internal reference</a></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Docutils removes whitespace in file paths. Wrapping a path or filename in quotes does not resolve it. You should always rename the files to NOT include spaces.</p>
+<p>For example, this reference: <code class="docutils literal notranslate"><span class="pre">_static/my</span> <span class="pre">image</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">cat.png</span></code>, will resolve to this path: <code class="docutils literal notranslate"><span class="pre">_static/myimageofacat.png</span></code>. So rename it: <code class="docutils literal notranslate"><span class="pre">_static/my_image_of_a_cat.png</span></code>.</p>
+</div>
+</section>
+<section id="implicit-linking">
+<h3>Implicit Linking<a class="headerlink" href="#implicit-linking" title="Permalink to this heading">¶</a></h3>
+<p>Section titles, footnotes, and citations automatically generate hyperlink targets (the title text or footnote/citation label is used as the hyperlink name). These are called <em>implicit links</em>. For example, <code class="docutils literal notranslate"><span class="pre">`Grid</span> <span class="pre">tables`_</span></code> creates an implicit link to that heading, as seen here:  <a class="reference internal" href="#grid-tables">Grid tables</a>.</p>
+<p>Syntax for footnote and citation links:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Footnote reference <span class="s">[1]_</span>, and another <span class="s">[2]_</span>
+Citation reference <span class="s">[CIT2002]_</span>
+</pre></div>
+</div>
+<p>Syntax for footnote and citation definitions:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">[1]</span> Footnote 1 content...
+
+<span class="p">..</span> <span class="nt">[2]</span> Footnote 2 content...
+
+<span class="p">..</span> <span class="nt">[CIT2002]</span> Citation content...
+</pre></div>
+</div>
+<p>output:</p>
+<p>Footnote reference <a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, and another <a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<p>Citation reference <a class="reference internal" href="#cit2002" id="id3"><span>[CIT2002]</span></a></p>
+<p>Note that full urls are automatically made into references, for example, <a class="reference external" href="https://docutils.sourceforge.io/rst.html">https://docutils.sourceforge.io/rst.html</a></p>
+</section>
+<section id="links-to-other-documents">
+<h3>Links to other documents<a class="headerlink" href="#links-to-other-documents" title="Permalink to this heading">¶</a></h3>
+<p>You can reference arbitrary locations in another document within your documentation using labels. If you place a label directly before a section title, you can link to it like so:</p>
+<p>Syntax to create a label before a section heading:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_my</span><span class="o">-</span><span class="n">section</span><span class="o">-</span><span class="n">label</span><span class="p">:</span>
+
+<span class="n">Section</span> <span class="n">Heading</span>
+<span class="o">---------------</span>
+</pre></div>
+</div>
+<p>Syntax to link to a label that has been placed before a section heading:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For example see :ref:`my-section-label`.
+</pre></div>
+</div>
+<p>output:</p>
+<p>For example see <a class="reference internal" href="test_headings.html#my-section-label"><span class="std std-ref">Heading6</span></a>.</p>
+<p>Note that the heading title will be inserted into the link.</p>
+<p>Labels that <em>are not</em> placed before a section title can still be referenced to, but you must give the link an explicit title, using this syntax: <code class="docutils literal notranslate"><span class="pre">:ref:`Link</span> <span class="pre">title</span> <span class="pre">&lt;label-name&gt;`</span></code>.</p>
+<p>Syntax to create a label using an explicit title:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_my</span><span class="o">-</span><span class="n">non</span><span class="o">-</span><span class="n">section</span><span class="o">-</span><span class="n">label</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Syntax to link to a label using an explicit title:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For example see: :ref:`my reference &lt;my-non-section-label&gt;`
+</pre></div>
+</div>
+<p>output:</p>
+<p>For example see: <a class="reference internal" href="test_headings.html#my-non-section-label"><span class="std std-ref">my reference</span></a>.</p>
+</section>
+<section id="substitutions">
+<h3>Substitutions<a class="headerlink" href="#substitutions" title="Permalink to this heading">¶</a></h3>
+<p>Substitution reference: text that is wrapped in pipes like: <code class="docutils literal notranslate"><span class="pre">|13ds|</span></code> can be swapped out with text or images when the document is rendered for example: <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">|13ds|</span> <span class="pre">replace::</span> <span class="pre">13</span> <span class="pre">Down</span> <span class="pre">Software</span> <span class="pre">Inc</span></code> or <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">|13ds|</span> <span class="pre">image::</span> <span class="pre">logo.png</span></code>. This bit is often set in the <code class="docutils literal notranslate"><span class="pre">rst_epilog</span></code> or <code class="docutils literal notranslate"><span class="pre">rst_prolog</span></code> in the <cite>conf.py</cite> file so that the substitution is applied site-wide.</p>
+<p>13 Down Software Inc</p>
+</section>
+</section>
+<section id="section-structure">
+<h2>Section Structure<a class="headerlink" href="#section-structure" title="Permalink to this heading">¶</a></h2>
+<p>It would appear that you can use any nonalphanumeric character to indicate a heading (<code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">-</span> <span class="pre">`</span> <span class="pre">:</span> <span class="pre">'</span> <span class="pre">&quot;</span> <span class="pre">~</span> <span class="pre">^</span> <span class="pre">_</span> <span class="pre">*</span> <span class="pre">+</span> <span class="pre">#</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span></code>). All you have to do is underline (or over and underline) to at least the same length as the text. If the second heading uses a different character, it will be treated as a subheading and so on.</p>
+<p>The python convention is this:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> with overline, for parts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> with overline, for chapters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code>, for sections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code>, for subsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code>, for subsubsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, for paragraphs</p></li>
+</ul>
+<p>I don’t really get what their distinction is between parts, chapters and sections and why there’s one for paragraphs but… the point is, select a pattern and stick to it. For example, in this page I’ve used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">================</span>
+<span class="n">Main</span> <span class="n">Title</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="o">================</span>
+
+<span class="n">Section</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span>
+<span class="o">=============</span>
+
+<span class="n">Subsection</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">h3</span><span class="o">&gt;</span>
+<span class="o">----------------</span>
+
+<span class="n">Sub</span><span class="o">-</span><span class="n">subsection</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">h4</span><span class="o">&gt;</span>
+<span class="o">^^^^^^^^^^^^^^^^^^^^</span>
+</pre></div>
+</div>
+</section>
+<section id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">¶</a></h2>
+<section id="unordered">
+<h3>Unordered<a class="headerlink" href="#unordered" title="Permalink to this heading">¶</a></h3>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="m">-</span> bullet lists uses one asterisk
+<span class="m">-</span> also hyphens work
+<span class="m">-</span> the list will have the class <span class="s">``&lt;ul class=&quot;simple&quot;&gt;``</span>
+
+  <span class="m">*</span> nested lists within an unordered list must be indented <span class="gs">**2 spaces**</span>
+  <span class="m">*</span> and have a space before and after
+
+<span class="m">-</span> continuation of the main list
+</pre></div>
+</div>
+<p>output:</p>
+<ul class="simple">
+<li><p>bullet lists uses one asterisk</p></li>
+<li><p>also hyphens work</p></li>
+<li><p>the list will have the class <code class="docutils literal notranslate"><span class="pre">&lt;ul</span> <span class="pre">class=&quot;simple&quot;&gt;</span></code></p>
+<ul>
+<li><p>nested lists within an unordered list must be indented <strong>2 spaces</strong></p></li>
+<li><p>and have a space before and after</p></li>
+</ul>
+</li>
+<li><p>continuation of the main list</p></li>
+</ul>
+</section>
+<section id="ordered">
+<h3>Ordered<a class="headerlink" href="#ordered" title="Permalink to this heading">¶</a></h3>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="m">#.</span> use numbers and a dot for numbered lists
+<span class="m">#.</span> or use <span class="s">``#.``</span> for auto-numbering lists
+<span class="m">#.</span> the list will have the class <span class="s">``&lt;ol class=&quot;arabic simple&quot;&gt;``</span>
+
+   <span class="m">#.</span> nested lists within an ordered list must be indented <span class="gs">**3 spaces**</span>
+   <span class="m">#.</span> and have a space before and after`
+</pre></div>
+</div>
+<p>output:</p>
+<ol class="arabic simple">
+<li><p>use numbers and a dot for numbered lists</p></li>
+<li><p>or use <code class="docutils literal notranslate"><span class="pre">#.</span></code> for auto-numbering lists</p></li>
+<li><p>the list will have the class <code class="docutils literal notranslate"><span class="pre">&lt;ol</span> <span class="pre">class=&quot;arabic</span> <span class="pre">simple&quot;&gt;</span></code></p>
+<ol class="arabic simple">
+<li><p>nested lists within an ordered list must be indented <strong>3 spaces</strong></p></li>
+<li><p>and have a space before and after`</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="definition-lists">
+<h3>Definition Lists<a class="headerlink" href="#definition-lists" title="Permalink to this heading">¶</a></h3>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Definition list term (can only be one line)
+   Definition of the term, which must be indented
+
+   and can even consist of multiple paragraphs
+
+next term
+   Description.
+</pre></div>
+</div>
+<p>output:</p>
+<dl>
+<dt>Definition list term (can only be one line)</dt><dd><p>Definition of the term, which must be indented</p>
+<p>and can even consist of multiple paragraphs</p>
+</dd>
+<dt>next term</dt><dd><p>Description.</p>
+</dd>
+</dl>
+</section>
+<section id="field-lists">
+<h3>Field lists<a class="headerlink" href="#field-lists" title="Permalink to this heading">¶</a></h3>
+<p>This is just a definition list with <code class="docutils literal notranslate"><span class="pre">class=&quot;field-list</span> <span class="pre">simple&quot;</span></code>. The term and definition elements have alternating classes <code class="docutils literal notranslate"><span class="pre">field-odd</span></code> and <code class="docutils literal notranslate"><span class="pre">field-even</span></code>.</p>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="nc">:what:</span>
+    Field lists map field names to field bodies, like database records. They are often part of an extension syntax.
+
+<span class="nc">:how:</span>
+    The field marker is a colon, the field name, and a colon.
+
+    The field body may contain one or more body elements, indented relative to the field marker.
+
+<span class="nc">:Authors:</span>
+    Jessica Rush,
+    Scott Volk
+
+<span class="nc">:Version:</span> 1.0
+<span class="nc">:Last update:</span> |today|
+</pre></div>
+</div>
+<p>output:</p>
+<dl class="field-list">
+<dt class="field-odd">what<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Field lists map field names to field bodies, like database records. They are often part of an extension syntax.</p>
+</dd>
+<dt class="field-even">how<span class="colon">:</span></dt>
+<dd class="field-even"><p>The field marker is a colon, the field name, and a colon.</p>
+<p>The field body may contain one or more body elements, indented relative to the field marker.</p>
+</dd>
+<dt class="field-odd">Authors<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jessica Rush,
+Scott Volk</p>
+</dd>
+<dt class="field-even">Version<span class="colon">:</span></dt>
+<dd class="field-even"><p>1.0</p>
+</dd>
+<dt class="field-odd">Last update<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jun 22, 2022</p>
+</dd>
+</dl>
+</section>
+<section id="option-lists">
+<h3>Option Lists<a class="headerlink" href="#option-lists" title="Permalink to this heading">¶</a></h3>
+<p>This is just a definition list with <code class="docutils literal notranslate"><span class="pre">class=&quot;option-list&quot;</span></code></p>
+<p>Option lists are two-column lists of command-line options and descriptions, documenting a program’s options. There should be at least two spaces between the option and its description. For example:</p>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>-a            command-line option a
+-b file       options can have long...
+
+<span class="cp">              ...multiline descriptions</span>
+--long        options can be long
+--input=file  long options can also have arguments
+/V            DOS/VMS-style options too
+</pre></div>
+</div>
+<p>output:</p>
+<dl class="option-list">
+<dt><kbd><span class="option">-a</span></kbd></dt>
+<dd><p>command-line option a</p>
+</dd>
+<dt><kbd><span class="option">-b <var>file</var></span></kbd></dt>
+<dd><p>options can have long…</p>
+<p>…multiline descriptions</p>
+</dd>
+<dt><kbd><span class="option">--long</span></kbd></dt>
+<dd><p>options can be long</p>
+</dd>
+<dt><kbd><span class="option">--input=<var>file</var></span></kbd></dt>
+<dd><p>long options can also have arguments</p>
+</dd>
+<dt><kbd><span class="option">/V</span></kbd></dt>
+<dd><p>DOS/VMS-style options too</p>
+</dd>
+</dl>
+<p>This just creats a definition list with <code class="docutils literal notranslate"><span class="pre">&lt;kbd&gt;</span></code> elements.</p>
+</section>
+</section>
+<section id="blocks">
+<h2>Blocks<a class="headerlink" href="#blocks" title="Permalink to this heading">¶</a></h2>
+<section id="paragraphs">
+<h3>Paragraphs<a class="headerlink" href="#paragraphs" title="Permalink to this heading">¶</a></h3>
+<p>Paragraphs are simply chunks of text separated by one or more blank lines.</p>
+</section>
+<section id="blockquotes">
+<h3>Blockquotes<a class="headerlink" href="#blockquotes" title="Permalink to this heading">¶</a></h3>
+<p>Blockquotes are created by simply indenting a paragraph 2 spaces.</p>
+<blockquote>
+<div><p>For example this text will has been indented 2 spaces in the .rst. When built to html, it will be wrapped in a <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> element, inside a <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> which will then be inside the <code class="docutils literal notranslate"><span class="pre">&lt;blockquote&gt;</span></code> element.</p>
+</div></blockquote>
+</section>
+<section id="indented-literal-blocks">
+<h3>Indented Literal Blocks<a class="headerlink" href="#indented-literal-blocks" title="Permalink to this heading">¶</a></h3>
+<p>Indented literal blocks are a type of pre-formatted code block. A <code class="docutils literal notranslate"><span class="pre">::</span></code> paragraph starts a literal block. The following indented lines will be part of the block. Whitespace, newlines, blank lines, and markup is preserved.</p>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="se">::</span>
+
+<span class="s">  def myfunction1(num1, num2):</span>
+<span class="s">    &#39;&#39;&#39;This is an example ok&#39;&#39;&#39;</span>
+<span class="s">    print(num1 * num2)</span>
+</pre></div>
+</div>
+<p>output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfunction1</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+  <span class="sd">&#39;&#39;&#39;This is an example ok&#39;&#39;&#39;</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, syntax highlighting for these literal blocks is python but this can be changed on a document-wide basis using the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-highlight">highlight directive</a>.</p>
+<p>For example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">highlight</span><span class="p">::</span> rst
+</pre></div>
+</div>
+<p>This language will used on all literal blocks until the next highlight directive is encountered. If you prefer to specify syntax highlighting on a block-by-block basis, use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block">code block directive</a>.</p>
+<p>Syntax highlighting is provided by <a class="reference external" href="https://pygments.org/demo/#try">Pygments</a>. There are a number if different styles to choose from. You can set your preferred style using <code class="docutils literal notranslate"><span class="pre">pygments_style</span></code> in your <em>conf.py</em>. Pygments also provides <a class="reference external" href="https://pygments.org/docs/styles/">instructions on creating your own style</a>.</p>
+</section>
+<section id="code-blocks">
+<h3>Code Blocks<a class="headerlink" href="#code-blocks" title="Permalink to this heading">¶</a></h3>
+<p>To use the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block">code block directive</a> to indicate javascript syntax, type <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span> <span class="pre">javascript</span></code>. The language can be <a class="reference external" href="https://pygments.org/docs/lexers/">any lexer alias supported by Pygments</a>. Most common ones you can pretty much guess but note there are useful ones like <code class="docutils literal notranslate"><span class="pre">pycon</span></code> and <code class="docutils literal notranslate"><span class="pre">pytb</span></code> for python console and python traceback code respectively.</p>
+<p>Code blocks can have a number options set, for example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> javascript
+  <span class="nc">:linenos:</span>
+  <span class="nc">:lineno-start:</span> 5
+  <span class="nc">:emphasize-lines:</span> 2,5
+  <span class="nc">:caption:</span> app/static/example.js
+  <span class="nc">:name:</span> example-js
+
+  function logAmount(amt) {
+    console.log(amt.toFixed(2));
+    console.log(&#39;Testing really long line because this makes a table and ...&#39;);
+  }
+
+  let amount = 9.9888;
+
+  logAmount(amount * 2);  // 19.98
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linenos</span></code> will turn on line numbering</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lineno-start</span></code> starts the line numbering at a given number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">emphasize-lines</span></code> highlights given lines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">caption</span></code> adds a visible caption</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>  creates a name label for linking</p></li>
+</ul>
+<p>The options above will output like this:</p>
+<div class="literal-block-wrapper docutils container" id="example-js">
+<div class="code-block-caption"><span class="caption-text">app/static/example.js</span><a class="headerlink" href="#example-js" title="Permalink to this code">¶</a></div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 5</span><span class="kd">function</span><span class="w"> </span><span class="nx">logAmount</span><span class="p">(</span><span class="nx">amt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="linenos"> 6</span><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">amt</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">));</span><span class="w"></span>
+</span><span class="linenos"> 7</span><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Testing really long line because this makes a table and ...&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="p">}</span><span class="w"></span>
+<span class="hll"><span class="linenos"> 9</span>
+</span><span class="linenos">10</span><span class="kd">let</span><span class="w"> </span><span class="nx">amount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">9.9888</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="nx">logAmount</span><span class="p">(</span><span class="nx">amount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w">  </span><span class="c1">// 19.98</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="quoted-literal-blocks">
+<h3>Quoted Literal Blocks<a class="headerlink" href="#quoted-literal-blocks" title="Permalink to this heading">¶</a></h3>
+<p>Quoted literal blocks are similar to indented literal blocks in that they start with a <code class="docutils literal notranslate"><span class="pre">::</span></code> paragraph. They are unindented contiguous blocks of text where each line begins with the same non-alphanumeric printable 7-bit ASCII character, for example, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">$</span></code> or <code class="docutils literal notranslate"><span class="pre">|</span></code>. A blank line ends a quoted literal block. Note that the quoting characters are kept in the processed document.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>$ The following are all valid quoting characters:
+$
+$ ! &quot; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~
+</pre></div>
+</div>
+</section>
+<section id="line-blocks">
+<h3>Line Blocks<a class="headerlink" href="#line-blocks" title="Permalink to this heading">¶</a></h3>
+<p>A pipe <code class="docutils literal notranslate"><span class="pre">|</span></code> at the start of a line is said to be a way of preserving line breaks.</p>
+<div class="line-block">
+<div class="line">In reality, it just replaces the &lt;p&gt; with a div: <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;line-block&quot;&gt;</span></code></div>
+<div class="line">And wraps each line in its own div: <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;line&quot;&gt;</span></code></div>
+</div>
+</section>
+<section id="doctest-blocks">
+<h3>Doctest blocks<a class="headerlink" href="#doctest-blocks" title="Permalink to this heading">¶</a></h3>
+<p>Doctest blocks are meant to be used to output python interpreter examples. You start a block with <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> and it ends at the first empty line.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is a doctest block.&#39;</span><span class="p">)</span>
+<span class="go">This is a doctest block.</span>
+</pre></div>
+</div>
+</section>
+<section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this heading">¶</a></h3>
+<p>Arbitrary indented text that follows the <em>explicit markup start</em> (<code class="docutils literal notranslate"><span class="pre">..</span></code>) will be processed as a comment element. For example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="cp">.. This is a hidden comment!</span>
+</pre></div>
+</div>
+</section>
+<section id="admonitions">
+<h3>Admonitions<a class="headerlink" href="#admonitions" title="Permalink to this heading">¶</a></h3>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">admonition</span><span class="p">::</span> generic
+
+  This is a generic admonition. (class=&quot;admonition-generic admonition&quot;)
+
+<span class="p">..</span> <span class="ow">attention</span><span class="p">::</span>
+
+  This is an attention. (class=&quot;admonition attention&quot;)
+
+<span class="p">..</span> <span class="ow">caution</span><span class="p">::</span>
+
+  This is a caution. (class=&quot;admonition caution&quot;)
+
+<span class="p">..</span> <span class="ow">danger</span><span class="p">::</span>
+
+  This is a danger. (class=&quot;admonition danger&quot;)
+
+<span class="p">..</span> <span class="ow">error</span><span class="p">::</span>
+
+  This is an error. (class=&quot;admonition error&quot;)
+
+<span class="p">..</span> <span class="ow">hint</span><span class="p">::</span>
+
+  This is a hint. (class=&quot;admonition hint&quot;)
+
+<span class="p">..</span> <span class="ow">important</span><span class="p">::</span>
+
+  This is important. (class=&quot;admonition important&quot;)
+
+<span class="p">..</span> <span class="ow">note</span><span class="p">::</span>
+
+  This is a note. (class=&quot;admonition note&quot;)
+
+<span class="p">..</span> <span class="ow">seealso</span><span class="p">::</span>
+
+  This is a seealso. (class=&quot;admonition seealso&quot;)
+
+<span class="p">..</span> <span class="ow">tip</span><span class="p">::</span>
+
+  This is a tip. (class=&quot;admonition tip&quot;)
+
+<span class="p">..</span> <span class="ow">warning</span><span class="p">::</span>
+
+  This is a warning! (class=&quot;admonition warning&quot;)
+</pre></div>
+</div>
+<p>output:</p>
+<div class="admonition-generic admonition">
+<p class="admonition-title">generic</p>
+<p>This is a generic admonition. (class=”admonition-generic admonition”)</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This is an attention. (class=”admonition attention”)</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This is a caution. (class=”admonition caution”)</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>This is a danger. (class=”admonition danger”)</p>
+</div>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>This is an error. (class=”admonition error”)</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This is a hint. (class=”admonition hint”)</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This is important. (class=”admonition important”)</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a note. (class=”admonition note”)</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>This is a seealso. (class=”admonition seealso”)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is a tip. (class=”admonition tip”)</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a warning! (class=”admonition warning”)</p>
+</div>
+</section>
+</section>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Permalink to this heading">¶</a></h2>
+<p>There are two ways of creating tables in rst, grid tables and simple tables. Grid tables are ASCII art-like and super cumbersome to to produce but are nice because they allow for arbitrary cell contents. Simple tables are simpler to create but obviously more limited. You can also create “list tables” using the list-table directive.</p>
+<section id="grid-tables">
+<h3>Grid tables<a class="headerlink" href="#grid-tables" title="Permalink to this heading">¶</a></h3>
+<p>Grid tables are made up of the characters <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, and <code class="docutils literal notranslate"><span class="pre">+</span></code>. The hyphen <code class="docutils literal notranslate"><span class="pre">-</span></code> is used for horizontal lines (row separators). The equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> may be used to indicate optional header rows. The vertical bar <code class="docutils literal notranslate"><span class="pre">|</span></code> is used for vertical lines (column separators). The plus sign <code class="docutils literal notranslate"><span class="pre">+</span></code> is used for intersections of horizontal and vertical lines. For example:</p>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>+-----------------+-----------------+-----------------+
+<span class="o">|</span> Header 1        | Header 2        | Header 3        |
++=================+=================+=================+
+<span class="o">|</span> body row 1      | column 2        | column 3        |
++-----------------+-----------------+-----------------+
+<span class="o">|</span> body row 2      | Cells may span columns.           |
++-----------------+-----------------+-----------------+
+<span class="o">|</span> body row 3      | Cells may       | - cells can     |
++-----------------+ span rows.      | - contain other |
+<span class="o">|</span> body row 4      |                 | - elements.     |
++-----------------+-----------------+-----------------+
+</pre></div>
+</div>
+<p>output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Header 1</p></th>
+<th class="head"><p>Header 2</p></th>
+<th class="head"><p>Header 3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>body row 1</p></td>
+<td><p>column 2</p></td>
+<td><p>column 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>body row 2</p></td>
+<td colspan="2"><p>Cells may span columns.</p></td>
+</tr>
+<tr class="row-even"><td><p>body row 3</p></td>
+<td rowspan="2"><p>Cells may
+span rows.</p></td>
+<td rowspan="2"><ul class="simple">
+<li><p>cells can</p></li>
+<li><p>contain other</p></li>
+<li><p>elements.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>body row 4</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="simple-tables">
+<h3>Simple tables<a class="headerlink" href="#simple-tables" title="Permalink to this heading">¶</a></h3>
+<p>Simple tables are compact and easier to type. These are best suited to basic data tables. Cell contents are typically single paragraphs, although you can add some other body elements. Simple tables allow multi-line rows (in all but the first column) and column spans, but not row spans.</p>
+<p>Simple tables are described with horizontal borders made up of <code class="docutils literal notranslate"><span class="pre">=</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code> characters. The equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is used for top and bottom table borders, and to indicate optional header. The hyphen <code class="docutils literal notranslate"><span class="pre">-</span></code> is used to indicate column spans in a single row by underlining the joined columns, and may optionally be used to explicitly and/or visually separate rows. For example:</p>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>========  ========  ========
+Header 1  Header 2  Header 3
+========  ========  ========
+row 1     col 2     col 3
+row 2     col 2     col 3
+row 3     column span
+
+          <span class="m">-</span> with a list
+          <span class="m">-</span> inside
+          <span class="m">-</span> the cell
+--------  ------------------
+row 4     col 2     col 3
+========  ========  ========
+</pre></div>
+</div>
+<p>output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Header 1</p></th>
+<th class="head"><p>Header 2</p></th>
+<th class="head"><p>Header 3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>row 1</p></td>
+<td><p>col 2</p></td>
+<td><p>col 3</p></td>
+</tr>
+<tr class="row-odd"><td><p>row 2</p></td>
+<td><p>col 2</p></td>
+<td><p>col 3</p></td>
+</tr>
+<tr class="row-even"><td><p>row 3</p></td>
+<td colspan="2"><p>column span</p>
+<ul class="simple">
+<li><p>with a list</p></li>
+<li><p>inside</p></li>
+<li><p>the cell</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>row 4</p></td>
+<td><p>col 2</p></td>
+<td><p>col 3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="list-tables">
+<h3>List tables<a class="headerlink" href="#list-tables" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#list-table">list-table directive</a> is useful when dealing with long simple lists of data. This example only has two columns but you can have as many as you want. One of the nice things about using this directive is that you have access to options like alignment and column width.</p>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span>
+   <span class="nc">:widths:</span> 25 80
+   <span class="nc">:header-rows:</span> 1
+   <span class="nc">:align:</span> left
+
+   <span class="m">*</span> - label
+     <span class="m">-</span> description
+   <span class="m">*</span> - Feature:
+     <span class="m">-</span> a new feature added
+   <span class="m">*</span> - Fix:
+     <span class="m">-</span> a bug Fix
+   <span class="m">*</span> - Docs:
+     <span class="m">-</span> Documentation changes only
+   <span class="m">*</span> - Style:
+     <span class="m">-</span> formatting, whitespace changes only
+   <span class="m">*</span> - Refactor:
+     <span class="m">-</span> code changes than neither fix a bug or add a feature
+   <span class="m">*</span> - Perf:
+     <span class="m">-</span> code changes that improve performance
+   <span class="m">*</span> - Test:
+     <span class="m">-</span> adding tests
+   <span class="m">*</span> - Update:
+     <span class="m">-</span> changes related to updated external libraries/dependencies
+</pre></div>
+</div>
+<p>output:</p>
+<table class="docutils align-left">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>label</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Feature:</p></td>
+<td><p>a new feature added</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fix:</p></td>
+<td><p>a bug Fix</p></td>
+</tr>
+<tr class="row-even"><td><p>Docs:</p></td>
+<td><p>Documentation changes only</p></td>
+</tr>
+<tr class="row-odd"><td><p>Style:</p></td>
+<td><p>formatting, whitespace changes only</p></td>
+</tr>
+<tr class="row-even"><td><p>Refactor:</p></td>
+<td><p>code changes than neither fix a bug or add a feature</p></td>
+</tr>
+<tr class="row-odd"><td><p>Perf:</p></td>
+<td><p>code changes that improve performance</p></td>
+</tr>
+<tr class="row-even"><td><p>Test:</p></td>
+<td><p>adding tests</p></td>
+</tr>
+<tr class="row-odd"><td><p>Update:</p></td>
+<td><p>changes related to updated external libraries/dependencies</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="explicit-markup">
+<h2>Explicit markup<a class="headerlink" href="#explicit-markup" title="Permalink to this heading">¶</a></h2>
+<p>Explicit markup blocks are used for:</p>
+<ul class="simple">
+<li><p>floating elements like footnotes,</p></li>
+<li><p>elements with no direct paper-document representation like comments or hyperlink targets,</p></li>
+<li><p>directives that require specialized processing</p></li>
+</ul>
+<p>Explicit markup starts with two periods and whitespace.</p>
+<p>syntax:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="cp">.. Links &amp; Footnotes</span>
+
+<span class="p">..</span> <span class="nt">[1]</span> Footnote 1 content...
+
+<span class="p">..</span> <span class="nt">_`Internal reference`:</span>
+</pre></div>
+</div>
+<aside class="footnote brackets" id="id4" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Footnote 1 content…</p>
+</aside>
+<aside class="footnote brackets" id="id5" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Footnote 2 content…</p>
+</aside>
+<div role="list" class="citation-list">
+<div class="citation" id="cit2002" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">CIT2002</a><span class="fn-bracket">]</span></span>
+<p>Citation content…</p>
+</div>
+</div>
+<p id="internal-reference">Internal reference test content…</p>
+</section>
+<section id="directives">
+<h2>Directives<a class="headerlink" href="#directives" title="Permalink to this heading">¶</a></h2>
+<p>Directives are a general-purpose extension mechanism of reST, a way of adding support for new constructs without adding new syntax. Some common ones are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#code-blocks">Code Blocks</a></p></li>
+<li><p><a class="reference internal" href="#list-tables">List tables</a></p></li>
+<li><p><a class="reference internal" href="#admonitions">Admonitions</a></p></li>
+<li><p><a class="reference internal" href="#images">Images</a></p></li>
+<li><p><a class="reference internal" href="#figures">Figures</a></p></li>
+<li><p><a class="reference internal" href="#containers">Containers</a></p></li>
+<li><p><a class="reference internal" href="#epigraphs">Epigraphs</a></p></li>
+<li><p><a class="reference internal" href="#meta">Meta</a></p></li>
+<li><p><a class="reference internal" href="#raw-html">Raw HTML</a></p></li>
+<li><p><a class="reference internal" href="#contents">Contents</a></p></li>
+<li><p><a class="reference internal" href="#toctree">Toctree</a></p></li>
+<li><p><a class="reference internal" href="#glossary">Glossary</a></p></li>
+<li><p><a class="reference internal" href="#include">Include</a></p></li>
+<li><p><a class="reference internal" href="#literal-include">Literal Include</a></p></li>
+<li><p><a class="reference internal" href="#role">Role</a></p></li>
+</ul>
+<p>Note that with many directives, there is a main option that is placed on the same line as the name of the directive. For examples, with code blocks—the language, with images—the file path, with links—the URI. For example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> javascript
+  <span class="nc">:linenos:</span>
+
+<span class="p">..</span> <span class="ow">image</span><span class="p">::</span> ../_static/logo.svg
+  <span class="nc">:width:</span> 25px
+
+<span class="p">..</span> <span class="nt">_`github`:</span> https://github.com/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are two <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#common-options">common options</a> that can be added to almost any directive: <code class="docutils literal notranslate"><span class="pre">class:</span></code> and <code class="docutils literal notranslate"><span class="pre">name:</span></code>. Class is used to set a “class” attribute value on the element generated by the directive. Name is used set the “name” attribute which can then be used as an internal hyperlink target.</p>
+</div>
+<div class="line-block">
+<div class="line">See <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html">Docutils full list of directives</a>.</div>
+<div class="line">See <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html">Sphinx’s full list of directives</a>.</div>
+</div>
+<section id="images">
+<h3>Images<a class="headerlink" href="#images" title="Permalink to this heading">¶</a></h3>
+<p>Possible options include:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> ../_static/logo.svg
+  <span class="nc">:width:</span> 25px
+  <span class="nc">:height:</span> 25px
+  <span class="nc">:alt:</span> alternate text
+  <span class="nc">:target:</span> <span class="s">`reStructuredText Cheatsheet`_</span>
+  <span class="nc">:scale:</span> 50
+  <span class="nc">:align:</span> left
+  <span class="nc">:name:</span> logo
+  <span class="nc">:class:</span> scale-to-fit
+</pre></div>
+</div>
+<p>Example:</p>
+<a class="reference internal image-reference" href="#restructuredtext-cheatsheet"><img alt="alternate text" class="scale-to-fit" src="_static/logo.svg" /></a>
+<p>Note that images are often placed as substitutions, for example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>|diagram|
+
+a bunch of content
+
+<span class="p">..</span> <span class="nt">|diagram|</span> <span class="ow">image</span><span class="p">::</span> ../_static/diagram1.svg
+  <span class="nc">:alt:</span> alternate text
+  <span class="nc">:class:</span> diagram-full
+</pre></div>
+</div>
+</section>
+<section id="figures">
+<h3>Figures<a class="headerlink" href="#figures" title="Permalink to this heading">¶</a></h3>
+<p>A figure directive coverts to an html <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> ../_static/logo.svg
+   <span class="nc">:alt:</span> alternate text
+   <span class="nc">:width:</span> 100px
+
+   This is the caption of the figure.
+</pre></div>
+</div>
+<p>output:</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="_static/logo.svg"><img alt="alternate text" src="_static/logo.svg" width="100px" /></a>
+<figcaption>
+<p><span class="caption-text">This is the caption of the figure.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="containers">
+<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this heading">¶</a></h3>
+<p>The container directive will surround its contents with a generic block-level “container” element. For example this reST:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">container</span><span class="p">::</span> special
+
+   This paragraph will be wrapped in its own container.
+</pre></div>
+</div>
+<p>…will output this in <em>make html</em>:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;special docutils container&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This paragraph will be wrapped in its own container.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="epigraphs">
+<h3>Epigraphs<a class="headerlink" href="#epigraphs" title="Permalink to this heading">¶</a></h3>
+<p>An epigraph is just a blockquote with optional attribution line.</p>
+<p>This rst:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">epigraph</span><span class="p">::</span>
+
+   No matter where you go, there you are.
+
+   -- Buckaroo Banzai
+</pre></div>
+</div>
+<p>Results in this html:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">blockquote</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;epigraph&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>No matter where you go, there you are.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;attribution&quot;</span><span class="p">&gt;</span>—Buckaroo Banzai<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">blockquote</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Like so:</p>
+<blockquote class="epigraph">
+<div><p>No matter where you go, there you are.</p>
+<p class="attribution">—Buckaroo Banzai</p>
+</div></blockquote>
+</section>
+<section id="meta">
+<h3>Meta<a class="headerlink" href="#meta" title="Permalink to this heading">¶</a></h3>
+<p>The meta directive is used to specify html metadata stored.</p>
+<p>For example this rst:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">meta</span><span class="p">::</span>
+   <span class="nc">:description:</span> The reStructuredText plaintext markup language
+   <span class="nc">:keywords:</span> plaintext, markup language
+</pre></div>
+</div>
+<p>Outputs as:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;description&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;The reStructuredText plaintext markup language&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;keywords&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;plaintext, markup language&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="raw-html">
+<h3>Raw HTML<a class="headerlink" href="#raw-html" title="Permalink to this heading">¶</a></h3>
+<p>The raw directive indicates non-reStructuredText data that is to be passed untouched to the Writer. For example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
+
+  &lt;p&gt;&lt;input placeholder=&quot;testing raw&quot;&gt;&lt;p&gt;
+</pre></div>
+</div>
+<p>Outputs:</p>
+<p><input placeholder="testing raw"><p></section>
+<section id="contents">
+<h3>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">¶</a></h3>
+<p>The contents directive is used to generate a table of contents for the current topic (page).</p>
+<p>It looks like this:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span>
+</pre></div>
+</div>
+<p>It can take one optional argument, a title:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span> On This Page
+</pre></div>
+</div>
+<p>Note that if a title is not provided, the default “Contents” will be used.</p>
+<p>There are also a number of possible options:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">contents</span><span class="p">::</span> On This Page
+   <span class="nc">:depth:</span> 2
+   <span class="nc">:local:</span>
+   <span class="nc">:backlinks:</span> none
+   <span class="nc">:class:</span> page-toc
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">:depth:</span></code> – the number of section levels that are included</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:local:</span></code> – will only include subsections of the section in which the directive is placed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:backlinks:</span></code> – value can be set to “entry”, “top” or “none”. By default, the directive generates links from section headers back to the table of contents.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:class:</span></code> – adds a class attribute to the outer container.</p></li>
+</ul>
+<p>output:</p>
+<nav class="contents" id="on-this-page">
+<p class="topic-title">On This Page</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#restructuredtext-cheatsheet" id="id7">reStructuredText Cheatsheet</a></p>
+<ul>
+<li><p><a class="reference internal" href="#inline-markup" id="id8">Inline markup</a></p></li>
+<li><p><a class="reference internal" href="#section-structure" id="id9">Section Structure</a></p></li>
+<li><p><a class="reference internal" href="#lists" id="id10">Lists</a></p></li>
+<li><p><a class="reference internal" href="#blocks" id="id11">Blocks</a></p></li>
+<li><p><a class="reference internal" href="#tables" id="id12">Tables</a></p></li>
+<li><p><a class="reference internal" href="#explicit-markup" id="id13">Explicit markup</a></p></li>
+<li><p><a class="reference internal" href="#directives" id="id14">Directives</a></p></li>
+<li><p><a class="reference internal" href="#miscellaneous" id="id15">Miscellaneous</a></p></li>
+<li><p><a class="reference internal" href="#custom-theme-options" id="id16">Custom Theme Options</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+</section>
+<section id="toctree">
+<h3>Toctree<a class="headerlink" href="#toctree" title="Permalink to this heading">¶</a></h3>
+<p>The <cite>toctree</cite> is a custom Sphinx directive. While it is primarily used to create the main table of contents in your <em>master document</em> (index.rst), it can also be used on other .rst pages to create subsections or groupings of documents. For example, say our master document’s toctree looks like this:</p>
+<p><em>index.rst</em></p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Contents</span>
+<span class="gh">========</span>
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> 2
+
+   installation.rst
+   quickstart.rst
+   example1.rst
+   example2.rst
+   example3.rst
+</pre></div>
+</div>
+<p>Rather than seeing all the individual examples in my main table of contents, I’d rather just have one <em>examples</em> heading. One solution would be to put (or <code class="docutils literal notranslate"><span class="pre">..include::</span></code>) all the examples into one file, but it most cases this isn’t practical and could result in some hideously long pages. Instead what I’ll do is create a new <code class="docutils literal notranslate"><span class="pre">examples.rst</span></code> file and place a toctree for all the examples:</p>
+<p><em>examples.rst</em></p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Examples</span>
+<span class="gh">========</span>
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> 2
+
+   example1.rst
+   example2.rst
+   example3.rst
+</pre></div>
+</div>
+<p>Then include <code class="docutils literal notranslate"><span class="pre">examples.rst</span></code> in my master document’s toctree.</p>
+<p><em>index.rst</em></p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Contents</span>
+<span class="gh">========</span>
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> 2
+
+   installation.rst
+   quickstart.rst
+   examples.rst
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">See also: <a class="reference external" href="https://github.com/jessicarush/sphinx-notes#toctree-indexrst">Jessica’s toctree notes</a></div>
+<div class="line">See also: <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#toctree-directive">Sphinx’s toctree documentation</a></div>
+</div>
+</section>
+<section id="glossary">
+<h3>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading">¶</a></h3>
+<p>todo</p>
+</section>
+<section id="include">
+<h3>Include<a class="headerlink" href="#include" title="Permalink to this heading">¶</a></h3>
+<p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#include">todo</a></p>
+</section>
+<section id="literal-include">
+<h3>Literal Include<a class="headerlink" href="#literal-include" title="Permalink to this heading">¶</a></h3>
+<p>todo</p>
+</section>
+<section id="role">
+<h3>Role<a class="headerlink" href="#role" title="Permalink to this heading">¶</a></h3>
+<p>The ‘role’ directive dynamically creates a custom interpreted text role and registers it with the parser. Basically what that means is you can create a custom role which has a set of instructions, then apply that to any text in your document.</p>
+<p>How it works is, first you define the role by giving it a name. Typically you’d put this at the start of your document.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">role</span><span class="p">::</span> highlight
+</pre></div>
+</div>
+<p>Then you’d add the instructions (i.e. what do you want the role to do?):</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">role</span><span class="p">::</span> highlight
+   <span class="nc">:class:</span> hightlight-text
+</pre></div>
+</div>
+<p>Then apply that role to some text:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">role</span><span class="p">::</span> highlight
+   <span class="nc">:class:</span> hightlight-text
+
+Testing <span class="na">:highlight:</span><span class="nv">`my role that adds a class`</span>.
+</pre></div>
+</div>
+<p>The html output would look like this:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Testing <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-hightlight&quot;</span><span class="p">&gt;</span>my role that adds a class<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<p>Testing <span class="text-hightlight">my role that adds a class</span>.</p>
+</section>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading">¶</a></h2>
+<section id="horizonal-rules">
+<h3>Horizonal Rules<a class="headerlink" href="#horizonal-rules" title="Permalink to this heading">¶</a></h3>
+<p>Four or more repeated punctuation characters creates an html “transition marker” which in html translates to an <code class="docutils literal notranslate"><span class="pre">&lt;hr</span> <span class="pre">class=&quot;docutils&quot;&gt;</span></code> element.</p>
+<hr class="docutils" />
+<p>These really shouldn’t be used to begin or end a section or document. It is the semantic intent that these be used when there is a thematic break from one paragraph to the next. ok</p>
+</section>
+<section id="supress-warnings">
+<h3>Supress warnings<a class="headerlink" href="#supress-warnings" title="Permalink to this heading">¶</a></h3>
+<p>If you have an .rst file that isn’t included in a toctree, but you still want it to be built, you can supress the warnings by using the <em>orphan</em> metadata. Note this <strong>must be place on the very first line</strong> of your .rst file:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="nc">:orphan:</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="custom-theme-options">
+<h2>Custom Theme Options<a class="headerlink" href="#custom-theme-options" title="Permalink to this heading">¶</a></h2>
+<section id="image-classes">
+<h3>Image Classes<a class="headerlink" href="#image-classes" title="Permalink to this heading">¶</a></h3>
+<p>The theme used in this documentation (13ds_theme_one) omes with several CSS classes for use with images.</p>
+<table class="docutils align-left">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>class name</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>scale-to-fit</p></td>
+<td><p>your image, regardless of size, will scale to the width of the container.</p></td>
+</tr>
+<tr class="row-odd"><td><p>noscale-center</p></td>
+<td><p>your image will not scale larger than its original saved size. If the image is smaller in width than the container, it will be centered.</p></td>
+</tr>
+<tr class="row-even"><td><p>noscale-left</p></td>
+<td><p>your image will not scale larger than its original saved size. If the image is smaller in width than the container, it will be aligned left.</p></td>
+</tr>
+<tr class="row-odd"><td><p>noscale-left-wrap</p></td>
+<td><p>your image will not scale larger than its original saved size. If the image is smaller in width than the container, it will be aligned left and allow text to wrap around its right side.</p></td>
+</tr>
+<tr class="row-even"><td><p>noscale-right-wrap</p></td>
+<td><p>your image will not scale larger than its original saved size. If the image is smaller in width than the container, it will be aligned right and allow text to wrap around its left side.</p></td>
+</tr>
+</tbody>
+</table>
+<p>You can apply a class to an image like so:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> ../_static/logo.svg
+  <span class="nc">:width:</span> 100px
+  <span class="nc">:class:</span> noscale-center
+</pre></div>
+</div>
+<p>output:</p>
+<a class="noscale-center reference internal image-reference" href="_static/logo.svg"><img alt="_static/logo.svg" class="noscale-center" src="_static/logo.svg" width="100px" /></a>
+</section>
+<section id="embedded-videos">
+<h3>Embedded Videos<a class="headerlink" href="#embedded-videos" title="Permalink to this heading">¶</a></h3>
+<p>This theme comes with a CSS class for placing youtube video content.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>.. raw:: html
+
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;video-content&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://www.youtube.com/embed/bXaoY7-dxdE&quot;</span> <span class="na">frameborder</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">allow</span><span class="o">=</span><span class="s">&quot;autoplay; encrypted-media&quot;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">reStructuredText Cheatsheet</a><ul>
+<li><a class="reference internal" href="#inline-markup">Inline markup</a><ul>
+<li><a class="reference internal" href="#linking">Linking</a></li>
+<li><a class="reference internal" href="#implicit-linking">Implicit Linking</a></li>
+<li><a class="reference internal" href="#links-to-other-documents">Links to other documents</a></li>
+<li><a class="reference internal" href="#substitutions">Substitutions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-structure">Section Structure</a></li>
+<li><a class="reference internal" href="#lists">Lists</a><ul>
+<li><a class="reference internal" href="#unordered">Unordered</a></li>
+<li><a class="reference internal" href="#ordered">Ordered</a></li>
+<li><a class="reference internal" href="#definition-lists">Definition Lists</a></li>
+<li><a class="reference internal" href="#field-lists">Field lists</a></li>
+<li><a class="reference internal" href="#option-lists">Option Lists</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#blocks">Blocks</a><ul>
+<li><a class="reference internal" href="#paragraphs">Paragraphs</a></li>
+<li><a class="reference internal" href="#blockquotes">Blockquotes</a></li>
+<li><a class="reference internal" href="#indented-literal-blocks">Indented Literal Blocks</a></li>
+<li><a class="reference internal" href="#code-blocks">Code Blocks</a></li>
+<li><a class="reference internal" href="#quoted-literal-blocks">Quoted Literal Blocks</a></li>
+<li><a class="reference internal" href="#line-blocks">Line Blocks</a></li>
+<li><a class="reference internal" href="#doctest-blocks">Doctest blocks</a></li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+<li><a class="reference internal" href="#admonitions">Admonitions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tables">Tables</a><ul>
+<li><a class="reference internal" href="#grid-tables">Grid tables</a></li>
+<li><a class="reference internal" href="#simple-tables">Simple tables</a></li>
+<li><a class="reference internal" href="#list-tables">List tables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#explicit-markup">Explicit markup</a></li>
+<li><a class="reference internal" href="#directives">Directives</a><ul>
+<li><a class="reference internal" href="#images">Images</a></li>
+<li><a class="reference internal" href="#figures">Figures</a></li>
+<li><a class="reference internal" href="#containers">Containers</a></li>
+<li><a class="reference internal" href="#epigraphs">Epigraphs</a></li>
+<li><a class="reference internal" href="#meta">Meta</a></li>
+<li><a class="reference internal" href="#raw-html">Raw HTML</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#toctree">Toctree</a></li>
+<li><a class="reference internal" href="#glossary">Glossary</a></li>
+<li><a class="reference internal" href="#include">Include</a></li>
+<li><a class="reference internal" href="#literal-include">Literal Include</a></li>
+<li><a class="reference internal" href="#role">Role</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li><a class="reference internal" href="#horizonal-rules">Horizonal Rules</a></li>
+<li><a class="reference internal" href="#supress-warnings">Supress warnings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#custom-theme-options">Custom Theme Options</a><ul>
+<li><a class="reference internal" href="#image-classes">Image Classes</a></li>
+<li><a class="reference internal" href="#embedded-videos">Embedded Videos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="test_codeblocks.html"
+                          title="previous chapter">Test Codeblocks</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/resources/restructuredtext.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="test_codeblocks.html" title="Test Codeblocks"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">sphinx_quickstart_v5.0.2 1.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">reStructuredText Cheatsheet</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, 13 Down Software.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    </div>
+  </body>
+</html>
